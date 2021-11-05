@@ -21,13 +21,9 @@ const ChartAppWork = () => {
                             https://github.com/RuslanFom/testApp <ExternalLinkIcon mx="2px"/>
                         </Link>
                     </ListItem>
-                    {/*<ListItem>
-                        <Meta>Platform</Meta>
-                        <span>Windows/macOS/Linux/iOS/Android</span>
-                    </ListItem>*/}
                     <ListItem>
                         <Meta>Stack</Meta>
-                        <span>Next.js, react-chartjs-2</span>
+                        <span>React, Next.js, react-chartjs-2</span>
                     </ListItem>
                 </List>
 

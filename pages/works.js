@@ -3,6 +3,7 @@ import Section from '../components/section'
 import {WorkGridItem} from '../components/grid-item'
 import thumbSN from '../public/images/works/sn.png'
 import thumbTA from '../public/images/works/testAppLogin.png'
+import thumbQR from '../public/images/works/examples/QRepublik1eng.png'
 import Layout from "../components/layouts/article"
 
 const Works = () => {
@@ -14,6 +15,15 @@ const Works = () => {
             </Heading>
 
             <SimpleGrid columns={[1, 1, 2]} gap={6}>
+                <Section>
+                    <WorkGridItem
+                      id="QRepublik"
+                      title="QRepublik"
+                      thumbnail={thumbQR}
+                    >
+                        My last job, landing-page for QRepublik company
+                    </WorkGridItem>
+                </Section>
                 <Section>
                     <WorkGridItem
                         id="Social-media-app"
