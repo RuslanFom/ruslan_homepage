@@ -5,6 +5,3 @@ dist
 .env
 .idea
 .gitignore
-.eslintrc.json
-.prettierignore
-package-lock.json
