@@ -3,3 +3,8 @@ node_modules
 dist
 .vercel
 .env
+.idea
+.gitignore
+.eslintrc.json
+.prettierignore
+package-lock.json

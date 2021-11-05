@@ -26,6 +26,7 @@ const LinkItem = ({href, path, children}) => {
                 p={2}
                 bg={active ? 'glassTeal' : undefined}
                 color={active ? '#202023' : inactiveColor}
+                borderRadius={3}
             >
                 {children}
             </Link>
@@ -70,11 +71,17 @@ const Navbar = props => {
                     flexGrow={1}
                     mt={{base: 4, nmd: 0}}
                 >
-                    <LinkItem href="/works" path={path}>
+                    <LinkItem href="/works" path={path} >
                         Works
+                    </LinkItem>
+                    <LinkItem href="/skills" path={path}>
+                        Skills
                     </LinkItem>
                     <LinkItem href="/contacts" path={path}>
                         Contacts
+                    </LinkItem>
+                    <LinkItem href="/examples" path={path}>
+                        Code
                     </LinkItem>
                 </Stack>
 
@@ -92,6 +99,12 @@ const Navbar = props => {
                                 </NextLink>
                                 <NextLink href="/works" passHref>
                                     <MenuItem as={Link}>Works</MenuItem>
+                                </NextLink>
+                                <NextLink href="/examples" passHref>
+                                    <MenuItem as={Link}>Code</MenuItem>
+                                </NextLink>
+                                <NextLink href="/skills" passHref>
+                                    <MenuItem as={Link}>Skills</MenuItem>
                                 </NextLink>
                                 <NextLink href="/contacts" passHref>
                                     <MenuItem as={Link}>Contacts</MenuItem>

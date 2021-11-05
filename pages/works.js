@@ -1,9 +1,9 @@
-import {Container, Heading, SimpleGrid, Divider} from '@chakra-ui/react'
+import {Container, Heading, SimpleGrid} from '@chakra-ui/react'
 import Section from '../components/section'
 import {WorkGridItem} from '../components/grid-item'
-import thumbInkdrop from '../public/images/works/inkdrop_eyecatch.png'
-import thumbWalknote from '../public/images/works/walknote_eyecatch.png'
-import Layout from "../components/layouts/article";
+import thumbSN from '../public/images/works/sn.png'
+import thumbTA from '../public/images/works/testAppLogin.png'
+import Layout from "../components/layouts/article"
 
 const Works = () => {
     return (
@@ -16,21 +16,20 @@ const Works = () => {
             <SimpleGrid columns={[1, 1, 2]} gap={6}>
                 <Section>
                     <WorkGridItem
-                        id="inkdrop"
-                        title="Inkdrop"
-                        thumbnail={thumbInkdrop}
+                        id="Social-media-app"
+                        title="Social-media-app"
+                        thumbnail={thumbSN}
                     >
-                        A markdown note-talking app with 100+
-                        encrypted data sync support
+                        My pet-project, in which I implement and consolidate all the material I have learned
                     </WorkGridItem>
                 </Section>
                 <Section>
                     <WorkGridItem
-                        id="walknote"
-                        title="walknote"
-                        thumbnail={thumbWalknote}
+                        id="ChartsApp"
+                        title="ChartsApp"
+                        thumbnail={thumbTA}
                     >
-                        Music recommendation app for iOS
+                        My statement of work from the employer
                     </WorkGridItem>
                 </Section>
             </SimpleGrid>

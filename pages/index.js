@@ -10,7 +10,7 @@ import {
     Button,
     List,
     ListItem,
-    Icon
+    Icon, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, Text, ModalFooter
 } from '@chakra-ui/react'
 import Section from '../components/section'
 import Layout from '../components/layouts/article'
@@ -22,16 +22,11 @@ import {
     IoLogoTwitter,
     IoLogoFacebook,
     IoLogoVk,
-    IoLogoDiscord,
     IoLogoGithub,
     IoLogoGitlab,
-    IoLogoGoogle,
     IoLogoInstagram,
-    IoLogoLinkedin,
-    IoLogoPaypal,
-    IoLogoSkype,
-    IoLogoWhatsapp
 } from 'react-icons/io5'
+
 
 const Page = () => {
     return (
@@ -51,7 +46,7 @@ const Page = () => {
                         <Heading as="h2" variant="page-title">
                             Ruslan Fomin
                         </Heading>
-                        <p>Digital Craftsman ( Artist / Developer / Designer )</p>
+                        <p>Digital Craftsman ( Artist / Developer / Explorer )</p>
                     </Box>
                     <Box
                         flexShrink={0}
@@ -74,7 +69,7 @@ const Page = () => {
 
                 <Section delay={0.1}>
                     <Heading as="h3" variant="section-title">
-                        Work
+                        About
                     </Heading>
                     <Paragraph>Ruslan is a proactive, fast learner, motivated and responsible guy who wished radically
                         change his life. Set a goal and move
@@ -92,9 +87,9 @@ const Page = () => {
                         </NextLink>
                     </Paragraph>
                     <Box align="center" my={4}>
-                        <NextLink href="/works">
+                        <NextLink href="/skills">
                             <Button rightIcon={<ChevronRightIcon/>} colorScheme="teal">
-                                My portfolio
+                                My skills
                             </Button>
 
                         </NextLink>
@@ -111,16 +106,25 @@ const Page = () => {
                     </BioSection>
                     <BioSection>
                         <BioYear>2014</BioYear>
-                        Completed the Master&apos;s Program in the Graduate School of Computer Science and Technology at
-                        Kyiv International University
+                        Completed the Bachelor&apos;s degree in International Relations at
+                        Kiev International University
                     </BioSection>
                     <BioSection>
-                        <BioYear>2014</BioYear>
-                        Worked at United Nations in Italy
+                        <BioYear>2016</BioYear>
+                        Completed the Master&apos;s degree in International Relations and Diplomacy at
+                        Bologna University
+                    </BioSection>
+                    <BioSection>
+                        <BioYear>2017</BioYear>
+                        Worked at United Nations in Italy as political affairs officer
+                    </BioSection>
+                    <BioSection>
+                        <BioYear>2020</BioYear>
+                        Coronavirus
                     </BioSection>
                     <BioSection>
                         <BioYear>2021 to present</BioYear>
-                        Works as a freelance
+                        Works as a Front-End Developer
                     </BioSection>
                 </Section>
 
@@ -145,7 +149,7 @@ const Page = () => {
                                         <Button variant="ghost"
                                                 colorScheme="teal"
                                                 leftIcon={<Icon as={IoLogoGithub}/>}>
-                                            @ruslanfom
+                                            GitHub
                                         </Button>
                                     </Link>
                                 </ListItem>
@@ -154,7 +158,7 @@ const Page = () => {
                                         <Button variant="ghost"
                                                 colorScheme="teal"
                                                 leftIcon={<Icon as={IoLogoTwitter}/>}>
-                                            @PycJIaHWi
+                                            Twitter
                                         </Button>
                                     </Link>
                                 </ListItem>
@@ -163,34 +167,7 @@ const Page = () => {
                                         <Button variant="ghost"
                                                 colorScheme="teal"
                                                 leftIcon={<Icon as={IoLogoFacebook}/>}>
-                                            @PyJIeT
-                                        </Button>
-                                    </Link>
-                                </ListItem>
-                                <ListItem>
-                                    <Link href="https://vk.com/bepJIyckoH" target="_blank">
-                                        <Button variant="ghost"
-                                                colorScheme="teal"
-                                                leftIcon={<Icon as={IoLogoVk}/>}>
-                                            @bepJIyckoH
-                                        </Button>
-                                    </Link>
-                                </ListItem>
-                                <ListItem>
-                                    <Link href="https://discord.gg/QQGMRCZ4" target="_blank">
-                                        <Button variant="ghost"
-                                                colorScheme="teal"
-                                                leftIcon={<Icon as={IoLogoDiscord}/>}>
-                                            @ruslanfom#9708
-                                        </Button>
-                                    </Link>
-                                </ListItem>
-                                <ListItem>
-                                    <Link href="mailto:ruslanfom@gmail.com" target="_blank">
-                                        <Button variant="ghost"
-                                                colorScheme="teal"
-                                                leftIcon={<Icon as={IoLogoGoogle}/>}>
-                                            @email me
+                                            Facebook
                                         </Button>
                                     </Link>
                                 </ListItem>
@@ -203,7 +180,7 @@ const Page = () => {
                                         <Button variant="ghost"
                                                 colorScheme="teal"
                                                 leftIcon={<Icon as={IoLogoGitlab}/>}>
-                                            @RuslanFom
+                                            GitLab
                                         </Button>
                                     </Link>
                                 </ListItem>
@@ -212,43 +189,16 @@ const Page = () => {
                                         <Button variant="ghost"
                                                 colorScheme="teal"
                                                 leftIcon={<Icon as={IoLogoInstagram}/>}>
-                                            @ragnarkkrrf
+                                            Instagram
                                         </Button>
                                     </Link>
                                 </ListItem>
                                 <ListItem>
-                                    <Link href="https://join.skype.com/invite/AeoxV93ceXUG" target="_blank">
+                                    <Link href="https://vk.com/bepJIyckoH" target="_blank">
                                         <Button variant="ghost"
                                                 colorScheme="teal"
-                                                leftIcon={<Icon as={IoLogoSkype}/>}>
-                                            @rusik280219
-                                        </Button>
-                                    </Link>
-                                </ListItem>
-                                <ListItem>
-                                    <Link href="https://www.linkedin.com/in/fom28" target="_blank">
-                                        <Button variant="ghost"
-                                                colorScheme="teal"
-                                                leftIcon={<Icon as={IoLogoLinkedin}/>}>
-                                            Ruslan Fomin
-                                        </Button>
-                                    </Link>
-                                </ListItem>
-                                <ListItem>
-                                    <Link href="https://wa.me/380958714232" target="_blank">
-                                        <Button variant="ghost"
-                                                colorScheme="teal"
-                                                leftIcon={<Icon as={IoLogoWhatsapp}/>}>
-                                            +380958714232
-                                        </Button>
-                                    </Link>
-                                </ListItem>
-                                <ListItem>
-                                    <Link href="https://www.paypal.com/myaccount/transfer/payRequest/U-4UT93429RH648341T/U-4T394255BL237934F?classicUrl=%2FUA%2Fcgi-bin%2F%3Fcmd%3D_prq&id=H--bjbpyNEvNWDIKIXEkg4zfphYDei9qPdbfng&v=1&utm_source=unp&utm_medium=email&utm_campaign=RT000186&utm_unptid=83479516-358e-11ec-b235-3cecef47c158&ppid=RT000186&cnac=UA&rsta=ru_RU%28ru-UA%29&cust=QNH8Y3C7NY7NE&unptid=83479516-358e-11ec-b235-3cecef47c158&calc=d271a85bbef9d&unp_tpcid=requestmoney-notifications-requestee&page=main%3Aemail%3ART000186&pgrp=main%3Aemail&e=cl&mchn=em&s=ci&mail=sys&appVersion=1.62.0trimerror&xt=104038" target="_blank">
-                                        <Button variant="ghost"
-                                                colorScheme="teal"
-                                                leftIcon={<Icon as={IoLogoPaypal}/>}>
-                                            ruslanfom@yahoo.com
+                                                leftIcon={<Icon as={IoLogoVk}/>}>
+                                            Vk
                                         </Button>
                                     </Link>
                                 </ListItem>
