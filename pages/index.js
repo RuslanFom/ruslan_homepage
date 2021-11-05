@@ -37,7 +37,7 @@ const Page = () => {
                     p={3}
                     mb={6}
                     align="center">
-                    Hello, I&apos;m a full-stack developer based in Russia!
+                    {"Hello, I'm a full-stack developer based in Russia!"}
                 </Box>
 
                 <Box display={{md: 'flex'}}>
@@ -105,13 +105,13 @@ const Page = () => {
                     </BioSection>
                     <BioSection>
                         <BioYear>2014</BioYear>
-                        Completed the Bachelor&apos;s degree in International Relations at
-                        Kiev International University
+                        {"Completed the Bachelor's degree in International Relations at " +
+                        "Kiev International University"}
                     </BioSection>
                     <BioSection>
                         <BioYear>2016</BioYear>
-                        Completed the Master&apos;s degree in International Relations and Diplomacy at
-                        Bologna University
+                        {"Completed the Master's degree in International Relations and Diplomacy at" +
+                        "Bologna University"}
                     </BioSection>
                     <BioSection>
                         <BioYear>2017</BioYear>
