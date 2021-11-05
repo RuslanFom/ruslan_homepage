@@ -37,7 +37,7 @@ const Page = () => {
                     p={3}
                     mb={6}
                     align="center">
-                    {"Hello, I'm a full-stack developer based in Russia!"}
+                    Hello, I&apos;m a full-stack developer based in Russia!
                 </Box>
 
                 <Box display={{md: 'flex'}}>
@@ -74,8 +74,8 @@ const Page = () => {
                         change his life. Set a goal and move
                         towards implementation step by step. Realized that I like to write application logic and try to
                         understand how certain
-                        technologies work, how they work inside, what tasks they solve. It's like reading and trying to
-                        understand people's
+                        technologies work, how they work inside, what tasks they solve. It&apos;s like reading and trying to
+                        understand people&apos;s
                         motivations and actions. If people are residually complex due to different experiences or
                         injuries that affect them, then
                         the machines do not bother with this drawback, they are very logical and understandable. The
@@ -105,13 +105,13 @@ const Page = () => {
                     </BioSection>
                     <BioSection>
                         <BioYear>2014</BioYear>
-                        {"Completed the Bachelor's degree in International Relations at " +
-                        "Kiev International University"}
+                        Completed the Bachelor&apos;s degree in International Relations at
+                        Kiev International University
                     </BioSection>
                     <BioSection>
                         <BioYear>2016</BioYear>
-                        {"Completed the Master's degree in International Relations and Diplomacy at" +
-                        "Bologna University"}
+                        Completed the Master&apos;s degree in International Relations and Diplomacy at
+                        Bologna University
                     </BioSection>
                     <BioSection>
                         <BioYear>2017</BioYear>
