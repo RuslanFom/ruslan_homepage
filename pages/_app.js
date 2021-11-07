@@ -3,6 +3,8 @@ import Layout from '../components/layouts/main'
 import Fonts from '../components/fonts'
 import theme from '../libs/theme'
 import {AnimatePresence} from 'framer-motion'
+import "../styles/globals.scss"
+import "../styles/Examples.module.scss"
 
 
 const Website = ({Component, pageProps, router}) => {

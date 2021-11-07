@@ -57,7 +57,7 @@ const Page = () => {
                             borderColor="whiteAlpha.800"
                             borderWidth={2}
                             borderStyle="solid"
-                            maxWidth="100px"
+                            maxWidth="115px"
                             display="inline-block"
                             borderRadius="full"
                             src="/images/ruslan.jpg"

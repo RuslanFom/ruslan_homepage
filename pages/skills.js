@@ -1,6 +1,6 @@
-import Layout from "../components/layouts/article";
-import Section from "../components/section";
-import {Container, Heading, List, ListItem, SimpleGrid, useColorModeValue} from "@chakra-ui/react";
+import Layout from "../components/layouts/article"
+import Section from "../components/section"
+import {Container, Heading, List, ListItem, SimpleGrid, useColorModeValue} from "@chakra-ui/react"
 
 
 const Skills = () => (
