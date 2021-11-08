@@ -29,7 +29,7 @@ const Skills = () => (
                                 mb={3}
                                 align="center"
                             >
-                                CSS
+                                CSS/SASS/SCSS
                             </ListItem>
                             <ListItem
                                 borderRadius="lg"
