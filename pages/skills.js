@@ -58,6 +58,15 @@ const Skills = () => (
                             >
                                 Three.js
                             </ListItem>
+                            <ListItem
+                              borderRadius="lg"
+                              bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
+                              p={2}
+                              mb={3}
+                              align="center"
+                            >
+                                React Native
+                            </ListItem>
                         </List>
                     </Section>
                     <Section>
@@ -107,6 +116,15 @@ const Skills = () => (
                             >
                                 Chakra UI
                             </ListItem>
+                            <ListItem
+                              borderRadius="lg"
+                              bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
+                              p={2}
+                              mb={3}
+                              align="center"
+                            >
+                                Ant Design
+                            </ListItem>
                         </List>
                     </Section>
                     <Section>
@@ -155,6 +173,15 @@ const Skills = () => (
                                 align="center"
                             >
                                 Jest
+                            </ListItem>
+                            <ListItem
+                              borderRadius="lg"
+                              bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
+                              p={2}
+                              mb={3}
+                              align="center"
+                            >
+                                Material Ui
                             </ListItem>
                         </List>
                     </Section>

@@ -37,7 +37,7 @@ const Page = () => {
                     p={3}
                     mb={6}
                     align="center">
-                    Hello, I&apos;m a full-stack developer based in Russia!
+                    Hello, I&apos;m a full-stack developer based in Ukraine!
                 </Box>
 
                 <Box display={{md: 'flex'}}>
