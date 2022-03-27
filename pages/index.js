@@ -119,7 +119,7 @@ const Page = () => {
                     </BioSection>
                     <BioSection>
                         <BioYear>2020</BioYear>
-                        Coronavirus in Italy, stays at home and studies hard
+                        Coronavirus in Italy, stays at home and work hard in It-Incubator
                     </BioSection>
                     <BioSection>
                         <BioYear>2021</BioYear>
