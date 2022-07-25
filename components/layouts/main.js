@@ -10,7 +10,7 @@ const Main = ({ children, router }) => {
       <Head>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <title>
-          Ruslan Fomin - Homepage
+          SimpleDev LTD - Homepage
         </title>
       </Head>
 

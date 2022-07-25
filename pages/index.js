@@ -37,7 +37,7 @@ const Page = () => {
                     p={3}
                     mb={6}
                     align="center">
-                    Hello, I&apos;m a full-stack developer based in Ukraine!
+                    Hello, I&apos;m a full-stack developer based in Ukraine who created my own outsourcing software development startup and selling full Javascript + React courses.
                 </Box>
 
                 <Box display={{md: 'flex'}}>
@@ -126,18 +126,45 @@ const Page = () => {
                         Works as a Front-End Developer in QRepublik company
                     </BioSection>
                     <BioSection>
-                        <BioYear>Now</BioYear>
-                        Looking for new opportunities
+                        <BioYear>2022</BioYear>
+                        Created my own programming courses of Javascript+React.js+Nest.js.
+                    </BioSection>
+                    <BioSection>
+                        <BioYear>2022</BioYear>
+                        Founded outsource company SimpleDev LTD, take the offers for a job and selling my video-courses.
                     </BioSection>
                 </Section>
 
                 <Section delay={0.3}>
                     <Heading as="h3" variant="section-title">
-                        I love
+                        Courses
                     </Heading>
-                    <Paragraph>
-                        Sport (snowboarding, running, downhill), Music, World Exploration, Coding
-                    </Paragraph>
+                    <BioSection>
+                        <BioYear>1</BioYear>
+                        Javascript for beginners(23 lessons)
+                    </BioSection>
+                    <BioSection>
+                        <BioYear>2</BioYear>
+                        Javascript. Full course(60 lessons)
+                    </BioSection>
+                    <BioSection>
+                        <BioYear>3</BioYear>
+                        React for beginners(33 lessons)
+                    </BioSection>
+                    <BioSection>
+                        <BioYear>4</BioYear>
+                        React+Redux, full course(87 lessons)
+                    </BioSection>
+                    <BioSection>
+                        <BioYear>5</BioYear>
+                        Nest.js(59 lessons)
+                    </BioSection>
+                    <BioSection>
+                        <BioYear>6</BioYear>
+                        Fullstack: React+Nest.js(106 lessons)
+                    </BioSection>
+
+                    For the purchase of courses, consultation, offer work or any information, write me to the pm via messengers or email.
                 </Section>
 
                 <Section delay={0.3}>

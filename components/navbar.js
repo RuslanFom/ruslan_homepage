@@ -83,6 +83,9 @@ const Navbar = props => {
                     <LinkItem href="/examples" path={path}>
                         Code
                     </LinkItem>
+                    {/* <LinkItem href="/converter" path={path}>
+                        Privace Policy
+                    </LinkItem> */}
                 </Stack>
 
                 <Box flex={1} align="right">

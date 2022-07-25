@@ -31,7 +31,7 @@ const Logo = () => {
                         fontWeight="bold"
                         ml={3}
                     >
-                        Ruslan Fomin
+                        SimpleDev
                     </Text>
                 </LogoBox>
             </a>
