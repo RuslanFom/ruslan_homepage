@@ -1,5 +1,6 @@
 import Logo from './logo'
 import NextLink from 'next/link'
+import {forwardRef} from 'react'
 import {
     Container,
     Box,
@@ -16,23 +17,31 @@ import {
 } from '@chakra-ui/react'
 import {HamburgerIcon} from '@chakra-ui/icons'
 import ThemeToggleButton from './theme-toggle-button'
+import {IoLogoGithub} from "react-icons/io5";
 
-const LinkItem = ({href, path, children}) => {
+const LinkItem = ({href, path, target, children, ...props}) => {
     const active = path === href
-    const inactiveColor = useColorModeValue('gray200', 'whiteAlpha.900')
+    const inactiveColor = useColorModeValue('gray.800', 'whiteAlpha.900')
     return (
-        <NextLink href={href}>
-            <Link
-                p={2}
-                bg={active ? 'glassTeal' : undefined}
-                color={active ? '#202023' : inactiveColor}
-                borderRadius={3}
-            >
-                {children}
-            </Link>
-        </NextLink>
+        <Link
+            as={NextLink}
+            href={href}
+            scroll={false}
+            p={2}
+            bg={active ? 'grassTeal' : undefined}
+            color={active ? '#202023' : inactiveColor}
+            target={target}
+            {...props}
+        >
+            {children}
+        </Link>
+
     )
 }
+// eslint-disable-next-line react/display-name
+const MenuLink = forwardRef((props, ref) => (
+    <Link ref={ref} as={NextLink} {...props} />
+))
 
 const Navbar = props => {
     const {path} = props
@@ -43,16 +52,17 @@ const Navbar = props => {
             as="nav"
             w="100%"
             bg={useColorModeValue('#ffffff40', '#20202380')}
-            style={{backdropFilter: 'blur(10px'}}
-            zIndex={1}
+            style={{backdropFilter: 'blur(10px)'}}
+            zIndex={2}
             {...props}
         >
-            <Container display="flex"
-                       p={2}
-                       maxW="container.md"
-                       wrap="wrap"
-                       align="center"
-                       justify="space-between"
+            <Container
+                display="flex"
+                p={2}
+                maxW="container.md"
+                wrap="wrap"
+                align="center"
+                justify="space-between"
             >
                 <Flex align="center" mr={5}>
                     <Heading as="h1"
@@ -69,9 +79,9 @@ const Navbar = props => {
                     width={{base: 'full', md: 'auto'}}
                     alignItems='center'
                     flexGrow={1}
-                    mt={{base: 4, nmd: 0}}
+                    mt={{base: 4, md: 0}}
                 >
-                    <LinkItem href="/works" path={path} >
+                    <LinkItem href="/works" path={path}>
                         Works
                     </LinkItem>
                     <LinkItem href="/skills" path={path}>
@@ -83,35 +93,35 @@ const Navbar = props => {
                     <LinkItem href="/examples" path={path}>
                         Code
                     </LinkItem>
-                    {/* <LinkItem href="/converter" path={path}>
-                        Privace Policy
-                    </LinkItem> */}
+                    <LinkItem
+                        target="_blank"
+                        href="https://github.com/RuslanFom/ruslan_homepage"
+                        path={path}
+                        display="inline-flex"
+                        alignItems="center"
+                        style={{gap: 4}}
+                        pl={2}
+                    >
+                        <IoLogoGithub/>
+                        Source
+                    </LinkItem>
                 </Stack>
 
                 <Box flex={1} align="right">
-                    <ThemeToggleButton />
+                    <ThemeToggleButton/>
                     <Box ml={2} display={{base: 'inline-block', md: 'none'}}>
-                        <Menu>
-                            <MenuButton as={IconButton}
-                                        icon={<HamburgerIcon/>}
-                                        variant="outline"
-                                        aria-label="Options"/>
+                        <Menu isLazy id="navbar-menu">
+                            <MenuButton
+                                as={IconButton}
+                                icon={<HamburgerIcon/>}
+                                variant="outline"
+                                aria-label="Options"/>
                             <MenuList>
-                                <NextLink href="/" passHref>
-                                    <MenuItem as={Link}>About</MenuItem>
-                                </NextLink>
-                                <NextLink href="/works" passHref>
-                                    <MenuItem as={Link}>Works</MenuItem>
-                                </NextLink>
-                                <NextLink href="/examples" passHref>
-                                    <MenuItem as={Link}>Code</MenuItem>
-                                </NextLink>
-                                <NextLink href="/skills" passHref>
-                                    <MenuItem as={Link}>Skills</MenuItem>
-                                </NextLink>
-                                <NextLink href="/contacts" passHref>
-                                    <MenuItem as={Link}>Contacts</MenuItem>
-                                </NextLink>
+                                <MenuItem as={MenuLink} href="/">About</MenuItem>
+                                <MenuItem as={MenuLink} href="/works">Works</MenuItem>
+                                <MenuItem as={MenuLink} href="/examples">Code</MenuItem>
+                                <MenuItem as={MenuLink} href="/skills">Skills</MenuItem>
+                                <MenuItem as={MenuLink} href="/contacts">Contacts</MenuItem>
                                 <MenuItem as={Link} href="https://github.com/RuslanFom">
                                     View Source
                                 </MenuItem>

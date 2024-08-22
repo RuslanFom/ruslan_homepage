@@ -241,3 +241,4 @@ const Skills = () => (
 )
 
 export default Skills
+export { getServerSideProps } from '../components/chakra'

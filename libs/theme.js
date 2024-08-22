@@ -1,4 +1,4 @@
-import { extendTheme} from '@chakra-ui/react'
+import { extendTheme } from '@chakra-ui/react'
 import { mode } from '@chakra-ui/theme-tools'
 
 const styles = {
@@ -36,7 +36,7 @@ const fonts = {
 }
 
 const colors = {
-    glassTeal: '#88ccca'
+    grassTeal: '#88ccca'
 }
 
 const config = {
@@ -44,12 +44,5 @@ const config = {
     useSystemColorMode: true
 }
 
-const theme = extendTheme({
-    config,
-    styles,
-    components,
-    colors,
-    fonts
-})
-
+const theme = extendTheme({ config, styles, components, fonts, colors })
 export default theme
