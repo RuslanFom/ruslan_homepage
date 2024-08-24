@@ -3,7 +3,7 @@ import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js'
 
 const draco = new DRACOLoader();
 draco.setDecoderConfig({ type: 'js' });
-draco.setDecoderPath('https://www.gstatic.com/draco/v1/decoders/')
+draco.setDecoderPath( 'https://github.com/mrdoob/three.js/tree/dev/examples/jsm/libs/draco' );
 
 export function loadGLTFModel(
     scene,

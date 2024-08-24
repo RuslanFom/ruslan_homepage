@@ -8,7 +8,7 @@ export default class Document extends NextDocument {
     const url = "https://www.googletagmanager.com/gtag/js?id=" + `${G_TAG}`
     return (
       <Html lang='en'>
-        <Head>
+          <Head />
           <script async src={`${url}`}></script>
           <script
             dangerouslySetInnerHTML={{
@@ -22,7 +22,7 @@ export default class Document extends NextDocument {
           `,
             }}
           />
-        </Head>
+
         <body>
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <Main />

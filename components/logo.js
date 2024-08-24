@@ -22,6 +22,7 @@ const LogoBox = styled.span`
 `
 
 const Logo = () => {
+
     return (
         <Link href='/' scroll={false}>
             <LogoBox>
