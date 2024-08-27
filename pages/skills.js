@@ -78,7 +78,7 @@ const Skills = () => (
                                 mb={3}
                                 align="center"
                             >
-                                React.js
+                                React
                             </ListItem>
                             <ListItem
                                 borderRadius="lg"

@@ -21,7 +21,7 @@ const Contacts = () => (
                     Contacts
                 </Heading>
                 <SimpleGrid columns={[2]} gap={1} minChildWidth="230px" spacingX="41px">
-                    <Link href="https://wa.me/380958714232" target="_blank">
+                    <Link href="https://wa.me/393756267642" target="_blank">
                         <Button variant="ghost"
                                 colorScheme="teal"
                                 leftIcon={<Icon as={IoLogoWhatsapp}/>}
