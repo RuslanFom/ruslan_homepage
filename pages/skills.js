@@ -123,7 +123,7 @@ const Skills = () => (
                               mb={3}
                               align="center"
                             >
-                                Ant Design
+                                Python
                             </ListItem>
                         </List>
                     </Section>
@@ -181,7 +181,7 @@ const Skills = () => (
                               mb={3}
                               align="center"
                             >
-                                Material Ui
+                                Linux
                             </ListItem>
                         </List>
                     </Section>
