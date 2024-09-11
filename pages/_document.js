@@ -3,6 +3,7 @@ import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
 import theme from '../libs/theme'
 import { G_TAG } from "../libs/constants"
 
+
 export default class Document extends NextDocument {
   render() {
     const url = "https://www.googletagmanager.com/gtag/js?id=" + `${G_TAG}`

@@ -18,7 +18,7 @@ const Skills = () => (
                                 bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
                                 p={2}
                                 mb={3}
-                                align="center"
+                                textAlign="center"
                             >
                                 HTML
                             </ListItem>
@@ -27,7 +27,7 @@ const Skills = () => (
                                 bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
                                 p={2}
                                 mb={3}
-                                align="center"
+                                textAlign="center"
                             >
                                 CSS/SASS/SCSS
                             </ListItem>
@@ -36,7 +36,7 @@ const Skills = () => (
                                 bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
                                 p={2}
                                 mb={3}
-                                align="center"
+                                textAlign="center"
                             >
                                 Javascript
                             </ListItem>
@@ -45,7 +45,7 @@ const Skills = () => (
                                 bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
                                 p={2}
                                 mb={3}
-                                align="center"
+                                textAlign="center"
                             >
                                 TypeScript
                             </ListItem>
@@ -54,7 +54,7 @@ const Skills = () => (
                                 bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
                                 p={2}
                                 mb={3}
-                                align="center"
+                                textAlign="center"
                             >
                                 Three.js
                             </ListItem>
@@ -63,7 +63,7 @@ const Skills = () => (
                               bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
                               p={2}
                               mb={3}
-                              align="center"
+                              textAlign="center"
                             >
                                 React Native
                             </ListItem>
@@ -76,7 +76,7 @@ const Skills = () => (
                                 bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
                                 p={2}
                                 mb={3}
-                                align="center"
+                                textAlign="center"
                             >
                                 React
                             </ListItem>
@@ -85,7 +85,7 @@ const Skills = () => (
                                 bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
                                 p={2}
                                 mb={3}
-                                align="center"
+                                textAlign="center"
                             >
                                 Redux
                             </ListItem>
@@ -94,7 +94,7 @@ const Skills = () => (
                                 bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
                                 p={2}
                                 mb={3}
-                                align="center"
+                                textAlign="center"
                             >
                                 Next.js
                             </ListItem>
@@ -103,7 +103,7 @@ const Skills = () => (
                                 bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
                                 p={2}
                                 mb={3}
-                                align="center"
+                                textAlign="center"
                             >
                                 REST API
                             </ListItem>
@@ -112,7 +112,7 @@ const Skills = () => (
                                 bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
                                 p={2}
                                 mb={3}
-                                align="center"
+                                textAlign="center"
                             >
                                 Chakra UI
                             </ListItem>
@@ -121,7 +121,7 @@ const Skills = () => (
                               bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
                               p={2}
                               mb={3}
-                              align="center"
+                              textAlign="center"
                             >
                                 Ant Design
                             </ListItem>
@@ -134,7 +134,7 @@ const Skills = () => (
                                 bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
                                 p={2}
                                 mb={3}
-                                align="center"
+                                textAlign="center"
                             >
                                 Git
                             </ListItem>
@@ -143,7 +143,7 @@ const Skills = () => (
                                 bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
                                 p={2}
                                 mb={3}
-                                align="center"
+                                textAlign="center"
                             >
                                 Node.js
                             </ListItem>
@@ -152,7 +152,7 @@ const Skills = () => (
                                 bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
                                 p={2}
                                 mb={3}
-                                align="center"
+                                textAlign="center"
                             >
                                 MongoDB
                             </ListItem>
@@ -161,7 +161,7 @@ const Skills = () => (
                                 bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
                                 p={2}
                                 mb={3}
-                                align="center"
+                                textAlign="center"
                             >
                                 webpack
                             </ListItem>
@@ -170,7 +170,7 @@ const Skills = () => (
                                 bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
                                 p={2}
                                 mb={3}
-                                align="center"
+                                textAlign="center"
                             >
                                 Jest
                             </ListItem>
@@ -179,7 +179,7 @@ const Skills = () => (
                               bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
                               p={2}
                               mb={3}
-                              align="center"
+                              textAlign="center"
                             >
                                 Material Ui
                             </ListItem>
@@ -197,7 +197,7 @@ const Skills = () => (
                                 bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
                                 p={2}
                                 mb={3}
-                                align="center"
+                                textAlign="center"
                             >
                                 English
                             </ListItem>
@@ -206,7 +206,7 @@ const Skills = () => (
                                 bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
                                 p={2}
                                 mb={3}
-                                align="center"
+                                textAlign="center"
                             >
                                 Русский
                             </ListItem>
@@ -219,7 +219,7 @@ const Skills = () => (
                                 bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
                                 p={2}
                                 mb={3}
-                                align="center"
+                                textAlign="center"
                             >
                                 Italiano
                             </ListItem>
@@ -228,7 +228,7 @@ const Skills = () => (
                                 bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
                                 p={2}
                                 mb={3}
-                                align="center"
+                                textAlign="center"
                             >
                                 Українська
                             </ListItem>
