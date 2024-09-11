@@ -1,8 +1,8 @@
 import Layout from '../components/layouts/article'
-import {Box, Button, Container, Heading, useColorModeValue} from '@chakra-ui/react'
+import {Box, Button, Container/*, Heading, useColorModeValue*/} from '@chakra-ui/react'
 import {WorkImage} from '../components/work'
 import NextLink from "next/link";
-import Esercizio from "../components/esercizio/esercizio";
+/*import Esercizio from "../components/esercizio/esercizio";*/
 
 const Exterminatus = () => (
     <Layout title='exterminatus'>
@@ -11,7 +11,7 @@ const Exterminatus = () => (
         </Container>
         {/*TRAINING NEW FEATURE*/}
 
-       {/* <Box
+      {/*  <Box
             align="center"
             p={3}
             bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
