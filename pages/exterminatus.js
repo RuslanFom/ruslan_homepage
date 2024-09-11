@@ -11,14 +11,14 @@ const Exterminatus = () => (
         </Container>
         {/*TRAINING NEW FEATURE*/}
 
-        <Box
+       {/* <Box
             align="center"
             p={3}
             bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
         >
             <Heading>Training</Heading>
             <Esercizio/>
-        </Box>
+        </Box>*/}
 
         {/*  FINISHING NEW FEATURE*/}
         <Box my={6} align="center">
