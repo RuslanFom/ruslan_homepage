@@ -7,8 +7,7 @@ import {
     useColorModeValue,
     SimpleGrid,
     Button,
-    List,
-    ListItem
+    List, ListItem,
 } from '@chakra-ui/react'
 import Section from '../components/section'
 import Layout from '../components/layouts/article'
@@ -21,8 +20,10 @@ import {
     IoLogoVk,
     IoLogoGithub,
     IoLogoInstagram,
+    IoLogoGitlab,
 } from 'react-icons/io5'
 import Image from 'next/image'
+import SocialButton from "../components/socialButton";
 
 
 const Home = () => (
@@ -35,7 +36,7 @@ const Home = () => (
                 mb={6}
                 textAlign="center"
                 css={{backdropFilter: 'blur(10px)'}}>
-                Hello, I&apos;m a full-stack developer based in Ukraine.
+                Hello, I&apos;m a full-stack developer based in Italy.
             </Box>
 
             <Box display={{md: 'flex'}}>
@@ -135,47 +136,21 @@ const Home = () => (
                     <BioYear>2023</BioYear>
                     Works as a Front-End Developer in QRepublik company
                 </BioSection>
-                {/*<BioSection>
-                        <BioYear>2022</BioYear>
-                        Created my own programming courses of Javascript+React.js+Nest.js.
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>2022</BioYear>
-                        Founded outsource company SimpleDev LTD, take the offers for a job and selling my video-courses.
-                    </BioSection>*/}
+
             </Section>
 
-            {/* <Section delay={0.3}>
-                    <Heading as="h3" variant="section-title">
-                        Courses
-                    </Heading>
-                    <BioSection>
-                        <BioYear>1</BioYear>
-                        Javascript for beginners(23 lessons)
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>2</BioYear>
-                        Javascript. Full course(60 lessons)
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>3</BioYear>
-                        React for beginners(33 lessons)
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>4</BioYear>
-                        React+Redux, full course(87 lessons)
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>5</BioYear>
-                        Nest.js(59 lessons)
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>6</BioYear>
-                        Fullstack: React+Nest.js(106 lessons)
-                    </BioSection>
+            <Box align="center" my={4}>
+                <Button
+                    as={NextLink}
+                    href="/contactForm"
+                    scroll={false}
+                    rightIcon={<ChevronRightIcon/>}
+                    colorScheme="teal"
+                >
+                    Let&apos;s talk!
+                </Button>
+            </Box>
 
-                    For the purchase of courses, consultation, offer work or any information, write me to the pm via messengers or email.
-                </Section>*/}
 
             <Section delay={0.3}>
                 <Heading as="h3" variant="section-title">
@@ -185,64 +160,27 @@ const Home = () => (
                     <Section>
                         <List>
                             <ListItem>
-                                <Link href="https://github.com/RuslanFom" target="_blank">
-                                    <Button variant="ghost"
-                                            colorScheme="teal"
-                                            leftIcon={<IoLogoGithub/>}>
-                                        GitHub
-                                    </Button>
-                                </Link>
+                                <SocialButton href="https://github.com/RuslanFom" icon={<IoLogoGithub/>} label="GitHub"/>
                             </ListItem>
                             <ListItem>
-                                <Link href="https://twitter.com/PycJIaHWi" target="_blank">
-                                    <Button variant="ghost"
-                                            colorScheme="teal"
-                                            leftIcon={<IoLogoTwitter/>}>
-                                        Twitter
-                                    </Button>
-                                </Link>
+                                <SocialButton href="https://twitter.com/PycJIaHWi" icon={<IoLogoTwitter/>} label="Twitter"/>
                             </ListItem>
                             <ListItem>
-                                <Link href="https://facebook.com/рyJIeT" target="_blank">
-                                    <Button variant="ghost"
-                                            colorScheme="teal"
-                                            leftIcon={<IoLogoFacebook/>}>
-                                        Facebook
-                                    </Button>
-                                </Link>
+                                <SocialButton href="https://facebook.com/рyJIeT" icon={<IoLogoFacebook/>} label="Facebook"/>
                             </ListItem>
                         </List>
                     </Section>
                     <Section>
                         <List>
                             <ListItem>
-                                <Link href="https://github.com/RuslanFom" target="_blank">
-                                    <Button variant="ghost"
-                                            colorScheme="teal"
-                                            leftIcon={<IoLogoGithub/>}>
-                                        GitHub
-                                    </Button>
-                                </Link>
+                                <SocialButton href="https://gitlab.com/RuslanFom" icon={<IoLogoGitlab/>} label="GitLab"/>
                             </ListItem>
                             <ListItem>
-                                <Link href="https://instagram.com/invites/contact/?i=2dtdh2bn3qx6&utm_content=1tllto4"
-                                      target="_blank">
-                                    <Button variant="ghost"
-                                            colorScheme="teal"
-                                            leftIcon={<IoLogoInstagram/>}>
-                                        Instagram
-                                    </Button>
-                                </Link>
+                                <SocialButton href="https://instagram.com/invites/contact/?i=2dtdh2bn3qx6&utm_content=1tllto4" icon={<IoLogoInstagram/>} label="Instagram"/>
                             </ListItem>
-                            <ListItem>
-                                <Link href="https://vk.com/bepJIyckoH" target="_blank">
-                                    <Button variant="ghost"
-                                            colorScheme="teal"
-                                            leftIcon={<IoLogoVk/>}>
-                                        Vk
-                                    </Button>
-                                </Link>
-                            </ListItem>
+                           <ListItem>
+                            <SocialButton href="https://vk.com/bepJIyckoH" icon={<IoLogoVk/>} label="Vk"/>
+                           </ListItem>
                         </List>
                     </Section>
                 </SimpleGrid>
