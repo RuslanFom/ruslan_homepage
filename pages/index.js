@@ -126,10 +126,14 @@ const Home = () => (
                 </BioSection>
                 <BioSection>
                     <BioYear>2020</BioYear>
-                    Coronavirus in Italy, stays at home and work hard in It-Incubator
+                    Coronavirus is coming in Italy
                 </BioSection>
                 <BioSection>
                     <BioYear>2021</BioYear>
+                    Start to study and work hard in It-Incubator
+                </BioSection>
+                <BioSection>
+                    <BioYear>2023</BioYear>
                     Works as a Front-End Developer in QRepublik company
                 </BioSection>
 
