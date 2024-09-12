@@ -2,7 +2,7 @@ import Layout from '../components/layouts/article'
 import {Box, Button, Container, Heading, useColorModeValue} from '@chakra-ui/react'
 import {WorkImage} from '../components/work'
 import NextLink from "next/link";
-import Esercizio from "../components/esercizio/esercizio";
+/*import Esercizio from "../components/esercizio/esercizio";*/
 
 const Exterminatus = () => (
     <Layout title='exterminatus'>
@@ -10,6 +10,7 @@ const Exterminatus = () => (
             <WorkImage src="/images/works/garbage.jpg"/>
         </Container>
         {/*TRAINING NEW FEATURE*/}
+{/*
 
         <Box
             align="center"
@@ -19,6 +20,7 @@ const Exterminatus = () => (
             <Heading>Training</Heading>
             <Esercizio/>
         </Box>
+*/}
 
         {/*  FINISHING NEW FEATURE*/}
         <Box my={6} align="center">
