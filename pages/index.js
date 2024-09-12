@@ -65,8 +65,8 @@ const Home = () => (
                         <Image
                             src="/images/ruslan.jpg"
                             alt="Profile image"
-                            width="100"
-                            height="100"
+                            width={100}
+                            height={100}
                         />
                     </Box>
                 </Box>
@@ -139,7 +139,7 @@ const Home = () => (
 
             </Section>
 
-            <Box align="center" my={4}>
+            <Box align="center" my={4} p={3}>
                 <Button
                     as={NextLink}
                     href="/contactForm"
@@ -156,29 +156,29 @@ const Home = () => (
                 <Heading as="h3" variant="section-title">
                     On the web
                 </Heading>
-                <SimpleGrid columns={[2]} gap={2}>
+                <SimpleGrid columns={[2]} gap={2} p={3}>
                     <Section>
                         <List>
-                            <ListItem>
+                            <ListItem justifyContent="start" ml={4}>
                                 <SocialButton href="https://github.com/RuslanFom" icon={<IoLogoGithub/>} label="GitHub"/>
                             </ListItem>
-                            <ListItem>
+                            <ListItem textAlign="start" ml={4}>
                                 <SocialButton href="https://twitter.com/PycJIaHWi" icon={<IoLogoTwitter/>} label="Twitter"/>
                             </ListItem>
-                            <ListItem>
+                            <ListItem textAlign="start" ml={4}>
                                 <SocialButton href="https://facebook.com/рyJIeT" icon={<IoLogoFacebook/>} label="Facebook"/>
                             </ListItem>
                         </List>
                     </Section>
                     <Section>
                         <List>
-                            <ListItem>
+                            <ListItem textAlign="end" mr={6}>
                                 <SocialButton href="https://gitlab.com/RuslanFom" icon={<IoLogoGitlab/>} label="GitLab"/>
                             </ListItem>
-                            <ListItem>
+                            <ListItem textAlign="end">
                                 <SocialButton href="https://instagram.com/invites/contact/?i=2dtdh2bn3qx6&utm_content=1tllto4" icon={<IoLogoInstagram/>} label="Instagram"/>
                             </ListItem>
-                           <ListItem>
+                           <ListItem textAlign="end" mr={14}>
                             <SocialButton href="https://vk.com/bepJIyckoH" icon={<IoLogoVk/>} label="Vk"/>
                            </ListItem>
                         </List>

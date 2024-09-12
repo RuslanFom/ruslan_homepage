@@ -20,7 +20,7 @@ import ThemeToggleButton from './theme-toggle-button'
 import {IoLogoGithub} from "react-icons/io5";
 
 const LinkItem = ({href, path, target, children, ...props}) => {
-    const active = path === href
+    const isActive = path === href
     const inactiveColor = useColorModeValue('gray.800', 'whiteAlpha.900')
     return (
         <Link
@@ -28,8 +28,8 @@ const LinkItem = ({href, path, target, children, ...props}) => {
             href={href}
             scroll={false}
             p={2}
-            bg={active ? 'grassTeal' : undefined}
-            color={active ? '#202023' : inactiveColor}
+            bg={isActive ? 'grassTeal' : undefined}
+            color={isActive ? '#202023' : inactiveColor}
             target={target}
             {...props}
         >
@@ -43,18 +43,15 @@ const MenuLink = forwardRef((props, ref) => (
     <Link ref={ref} as={NextLink} {...props} />
 ))
 
-const Navbar = props => {
-    const {path} = props
-
+const Navbar = ({ path }) => {
     return (
         <Box
             position="fixed"
             as="nav"
             w="100%"
             bg={useColorModeValue('#ffffff40', '#20202380')}
-            style={{backdropFilter: 'blur(10px)'}}
+            backdropFilter="blur(10px)"
             zIndex={2}
-            {...props}
         >
             <Container
                 display="flex"
@@ -99,8 +96,8 @@ const Navbar = props => {
                         path={path}
                         display="inline-flex"
                         alignItems="center"
-                        style={{gap: 4}}
                         pl={2}
+                        style={{ gap: '4px' }}
                     >
                         <IoLogoGithub/>
                         Source

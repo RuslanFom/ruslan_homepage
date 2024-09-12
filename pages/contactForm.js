@@ -1,6 +1,7 @@
 import React, {useRef, useState} from "react"
 import emailjs from '@emailjs/browser';
 import Layout from "../components/layouts/article";
+import {Button, Heading, Image} from "@chakra-ui/react";
 
 
 const ContactForm = () => {
@@ -40,27 +41,22 @@ const ContactForm = () => {
                 message: ''
             });
         } catch (error) {
+            console.error('Error sending email:', error);
+            alert('Something went wrong, please try again.');
+        } finally {
             setLoading(false);
-
-            console.log(error);
-
-            alert('Something went wrong')
         }
     };
 
     return (
-        <Layout>
-            <section className="c-space my-20">
+        <Layout title="contactForm">
+            <section className="c-space my-10">
                 <div className="relative min-h-screen flex items-center justify-center flex-col">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                        src="/terminal.png"
-                        alt="terminal-bg"
-                        className="absolute inset-0 min-h-screen"
-                    />
                     <div className="contact-container">
-                        <h3 className="head-text">Let&apos;s Talk</h3>
-                        <p className="text-lg text-white-600 mt-3">
+                        <Heading variant="title" pb={3} textDecoration="underline">
+                            Let&apos;s Talk
+                        </Heading>
+                        <p className="text-lg mt-3">
                             Whether you&apos;re looking to build a new website,
                             improve your existing platform, or bring a unique project to life,
                             I&apos;m here to help.
@@ -77,6 +73,7 @@ const ContactForm = () => {
                                     required
                                     className="field-input"
                                     placeholder="ex., John Doe"
+                                    aria-label="Full Name"
                                 />
                             </label>
 
@@ -90,6 +87,7 @@ const ContactForm = () => {
                                     required
                                     className="field-input"
                                     placeholder="ex., johndoe@gmail.com"
+                                    aria-label="Email address"
                                 />
                             </label>
 
@@ -103,15 +101,21 @@ const ContactForm = () => {
                                     rows={5}
                                     className="field-input"
                                     placeholder="Hi, I wanna give you a job..."
+                                    aria-label="Your message"
                                 />
                             </label>
-
-                            <button className="field-btn" type="submit" disabled={loading}>
+                            <Button
+                                type="submit"
+                                scroll={false}
+                                aria-busy={loading}
+                                isDisabled={loading}
+                                className="field-btn"
+                                colorScheme="teal"
+                                size="lg"
+                            >
                                 {loading ? 'Sending...' : 'Send Message'}
-
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img src="/arrow-up.png" alt="arrow-up" className="field-btn_arrow"/>
-                            </button>
+                                <Image src="/arrow-up.png" alt="arrow-up" className="field-btn_arrow"/>
+                            </Button>
                         </form>
                     </div>
                 </div>

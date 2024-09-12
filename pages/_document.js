@@ -1,35 +1,36 @@
-import { ColorModeScript } from '@chakra-ui/react'
-import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
+import {ColorModeScript} from '@chakra-ui/react'
+import {Html, Head, Main, NextScript} from 'next/document'
 import theme from '../libs/theme'
-import { G_TAG } from "../libs/constants"
+import {G_TAG} from "../libs/constants"
 
+const Document = () => {
+    const gtagUrl = `https://www.googletagmanager.com/gtag/js?id=${G_TAG}`
 
-export default class Document extends NextDocument {
-  render() {
-    const url = "https://www.googletagmanager.com/gtag/js?id=" + `${G_TAG}`
     return (
-      <Html lang='en'>
-          <Head />
-          <script async src={`${url}`}></script>
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${G_TAG}', {
-              page_path: window.location.pathname,
-            });
-          `,
-            }}
-          />
-
-        <body>
-        <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-        <Main />
-        <NextScript />
-        </body>
-      </Html>
+        <Html lang='en'>
+            <Head>
+                {/* Google Analytics Script */}
+                <script async src={gtagUrl}></script>
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${G_TAG}', {
+                page_path: window.location.pathname,
+              });
+            `,
+                    }}
+                />
+            </Head>
+            <body>
+            <ColorModeScript initialColorMode={theme.config.initialColorMode}/>
+            <Main/>
+            <NextScript/>
+            </body>
+        </Html>
     )
-  }
 }
+
+export default Document
