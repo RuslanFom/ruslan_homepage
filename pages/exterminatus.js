@@ -12,6 +12,7 @@ const Exterminatus = () => (
         {/*TRAINING NEW FEATURE*/}
 {/*
 
+
         <Box
             align="center"
             p={3}
@@ -20,6 +21,7 @@ const Exterminatus = () => (
             <Heading>Training</Heading>
             <Esercizio/>
         </Box>
+
 */}
 
         {/*  FINISHING NEW FEATURE*/}
