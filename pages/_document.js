@@ -2,6 +2,7 @@ import {ColorModeScript} from '@chakra-ui/react'
 import {Html, Head, Main, NextScript} from 'next/document'
 import theme from '../libs/theme'
 import {G_TAG} from "../libs/constants"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const Document = () => {
     const gtagUrl = `https://www.googletagmanager.com/gtag/js?id=${G_TAG}`
@@ -28,6 +29,7 @@ const Document = () => {
             <ColorModeScript initialColorMode={theme.config.initialColorMode}/>
             <Main/>
             <NextScript/>
+            <SpeedInsights />
             </body>
         </Html>
     )
