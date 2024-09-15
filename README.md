@@ -1,6 +1,6 @@
 # Ruslan's Homepage
 
-[https://ruslan-homepage.vercel.app/](https://www.craftz.dog/)
+[https://ruslan-homepage.vercel.app/](https://ruslan-homepage.vercel.app/)
 
 ## Stack
 
