@@ -25,7 +25,18 @@ import {
 import Image from 'next/image'
 import SocialButton from "../components/SocialButton";
 import {useTranslation} from 'next-i18next';
+import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 
+
+export async function getServerSideProps({ req, locale }) {
+    return {
+        props: {
+
+            cookies: req.headers.cookie ?? '',
+            ...(await serverSideTranslations(locale, ['common'])),
+        }
+    }
+}
 
 const Home = () => {
     const {t} = useTranslation('common');
@@ -77,7 +88,7 @@ const Home = () => {
 
                 <Section delay={0.1}>
                     <Heading as="h3" variant="section-title">
-                        About
+                        {t('about')}
                     </Heading>
                     <Paragraph> {t('about.p1')}<br/><br/>
                         {t('about.p2')}<br/><br/>
@@ -93,44 +104,42 @@ const Home = () => {
                             rightIcon={<ChevronRightIcon/>}
                             colorScheme="teal"
                         >
-                            My skills
+                            {t('skills')}
                         </Button>
                     </Box>
                 </Section>
 
                 <Section delay={0.2}>
                     <Heading as="h3" variant="section-title">
-                        Bio
+                        {t('bio')}
                     </Heading>
                     <BioSection>
                         <BioYear>1991</BioYear>
-                        Born in Pervomaisk, Ukraine.
+                        {t('bio.p1')}
                     </BioSection>
                     <BioSection>
                         <BioYear>2014</BioYear>
-                        Completed the Bachelor&apos;s degree in International Relations at
-                        Kiev International University
+                        {t('bio.p2')}
                     </BioSection>
                     <BioSection>
                         <BioYear>2016</BioYear>
-                        Completed the Master&apos;s degree in International Relations and Diplomacy at
-                        Bologna University
+                        {t('bio.p3')}
                     </BioSection>
                     <BioSection>
                         <BioYear>2017</BioYear>
-                        Worked at United Nations in Italy as political affairs officer
+                        {t('bio.p4')}
                     </BioSection>
                     <BioSection>
                         <BioYear>2020</BioYear>
-                        Coronavirus is coming in Italy
+                        {t('bio.p5')}
                     </BioSection>
                     <BioSection>
                         <BioYear>2021</BioYear>
-                        Start to study and work hard in It-Incubator
+                        {t('bio.p6')}
                     </BioSection>
                     <BioSection>
                         <BioYear>2023</BioYear>
-                        Works as a Front-End Developer in QRepublik company
+                        {t('bio.p7')}
                     </BioSection>
 
                 </Section>
@@ -143,14 +152,14 @@ const Home = () => {
                         rightIcon={<ChevronRightIcon/>}
                         colorScheme="teal"
                     >
-                        Let&apos;s talk!
+                        {t('form')}!
                     </Button>
                 </Box>
 
 
                 <Section delay={0.3}>
                     <Heading as="h3" variant="section-title">
-                        On the web
+                        {t('web')}
                     </Heading>
                     <SimpleGrid columns={[2]} gap={2} p={3}>
                         <Section>
@@ -194,4 +203,4 @@ const Home = () => {
 
 
 export default Home
-export {getServerSideProps} from './_app'
+

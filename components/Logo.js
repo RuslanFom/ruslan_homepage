@@ -2,6 +2,7 @@ import Link from 'next/link'
 import {Text, useColorModeValue} from '@chakra-ui/react'
 import styled from '@emotion/styled'
 import FootprintIcon from "./icons/Footprint";
+import {useTranslation} from "next-i18next";
 
 const LogoBox = styled.span`
     font-weight: bold;
@@ -22,7 +23,7 @@ const LogoBox = styled.span`
 `
 
 const Logo = () => {
-
+    const {t} = useTranslation('common');
     return (
         <Link href='/' scroll={false}>
             <LogoBox>
@@ -32,8 +33,9 @@ const Logo = () => {
                     fontFamily='M PLUS Rounded 1c, sans-serif'
                     fontWeight="bold"
                     ml={3}
+                    fontSize={20}
                 >
-                    Ruslan Fomin
+                    {t('name')}
                 </Text>
             </LogoBox>
         </Link>
@@ -41,4 +43,5 @@ const Logo = () => {
 }
 
 export default Logo
+export {getServerSideProps} from '../pages/index'
 

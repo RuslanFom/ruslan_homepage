@@ -3,8 +3,10 @@ import {ExternalLinkIcon} from '@chakra-ui/icons'
 import {Title, WorkImage, Meta} from '../../components/Work'
 import P from '../../components/Paragraph'
 import Layout from '../../components/layouts/Article'
+import {useTranslation} from "next-i18next";
 
 const BankApp = () => {
+    const {t} = useTranslation('common');
     return (
         <Layout title="F-Bank">
             <Container>
@@ -12,7 +14,7 @@ const BankApp = () => {
                     F-Bank <Badge>2024</Badge>
                 </Title>
                 <P>
-                    My banking app platform
+                    {t('work1.about')}
                 </P>
                 <List ml={4} my={4}>
                     <ListItem>
@@ -40,4 +42,4 @@ const BankApp = () => {
 }
 
 export default BankApp
-export { getServerSideProps } from '../_app'
+export {getServerSideProps} from '../index'

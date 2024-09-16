@@ -4,9 +4,11 @@ import Section from '../components/Section';
 import React, {useState, useMemo, useCallback} from 'react';
 import FsLightbox from 'fslightbox-react';
 import {ChevronRightIcon} from '@chakra-ui/icons';
+import {useTranslation} from "next-i18next";
 
 
 const Code = () => {
+    const {t} = useTranslation('common');
     const [toggler, setToggler] = useState(false)
 
     const sources = useMemo(
@@ -92,7 +94,7 @@ const Code = () => {
                             onClick={handleClick}
                             aria-expanded={toggler} // ARIA атрибут для улучшения доступности
                         >
-                            Code examples
+                            {t('code.examples')}
                         </Button>
                         <FsLightbox toggler={toggler} sources={sources} />
                     </Box>
@@ -103,3 +105,4 @@ const Code = () => {
 }
 
 export default Code
+export {getServerSideProps} from './index'

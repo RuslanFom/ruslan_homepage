@@ -37,4 +37,3 @@ const ChartAppWork = () => {
 }
 
 export default ChartAppWork
-export { getServerSideProps } from '../_app'

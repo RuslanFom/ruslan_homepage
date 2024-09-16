@@ -2,6 +2,9 @@ import Layout from "../components/layouts/Article"
 import Section from "../components/Section"
 import { Container, Heading, List, SimpleGrid } from "@chakra-ui/react"
 import SkillItem from "../components/SkillItem"
+import {useTranslation} from "next-i18next";
+
+
 
 const SkillSection = ({ title, items, columns = [3] }) => (
     <Section>
@@ -21,6 +24,7 @@ const SkillSection = ({ title, items, columns = [3] }) => (
 );
 
 const Skills = () => {
+    const {t} = useTranslation('common');
     const skills = [
         ['HTML', 'CSS/SASS/SCSS', 'JavaScript', 'TypeScript', 'Three.js', 'React Native', 'Linux'],
         ['React', 'Redux', 'Next.js', 'REST API', 'Chakra UI', 'Ant Design', 'Tailwind CSS'],
@@ -35,13 +39,13 @@ const Skills = () => {
     return (
         <Layout title="Skills">
             <Container>
-                <SkillSection title="Skills" items={skills} columns={[3]} />
-                <SkillSection title="Languages" items={languages} columns={[2]} />
+                <SkillSection title={t('nav.skills')} items={skills} columns={[3]} />
+                <SkillSection title={t('languages')} items={languages} columns={[2]} />
             </Container>
         </Layout>
     );
 };
 
 export default Skills;
-export { getServerSideProps } from './_app';
+export {getServerSideProps} from '../pages/index'
 
