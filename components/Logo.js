@@ -44,5 +44,5 @@ const Logo = () => {
 }
 
 export default Logo
-export {getServerSideProps} from '../pages/index'
+
 
