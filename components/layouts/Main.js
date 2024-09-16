@@ -40,3 +40,4 @@ const Main = ({ children, router }) => {
 }
 
 export default Main
+export { getServerSideProps } from '../../pages/index';

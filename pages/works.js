@@ -6,13 +6,15 @@ import thumbTA from '../public/images/works/testAppLogin.png'
 import thumbBA from '../public/images/works/sign-up.png'
 import thumbQR from '../public/images/works/examples/QRepublik1eng.png'
 import Layout from '../components/layouts/Article'
+import {useTranslation} from "next-i18next";
 
 const Works = () => {
+    const {t} = useTranslation('common');
     return (
         <Layout title="Works">
             <Container>
-                <Heading as="h3" fontSize={20} mb={4}>
-                    Works
+                <Heading as="h3" fontSize={20} mb={4} variant="section-title" pb={3}>
+                    {t('nav.works')}
                 </Heading>
 
                 <SimpleGrid w='100%' h='auto' columns={[1, 1, 2]} gap={6}>
@@ -22,7 +24,7 @@ const Works = () => {
                             title='F-Bank'
                             thumbnail={thumbBA}
                         >
-                            My banking app platform
+                            {t('work1.about')}
                         </WorkGridItem>
                     </Section>
 
@@ -32,7 +34,7 @@ const Works = () => {
                             title='QRepublik'
                             thumbnail={thumbQR}
                         >
-                            My last job, landing-page for QRepublik company
+                            {t('work2.about')}
                         </WorkGridItem>
                     </Section>
                     <Section>
@@ -41,7 +43,7 @@ const Works = () => {
                             title='Social-media-app'
                             thumbnail={thumbSN}
                         >
-                            My pet-project, in which I implement and consolidate all the material I have learned
+                            {t('work3.about')}
                         </WorkGridItem>
                     </Section>
                     <Section>
@@ -50,7 +52,7 @@ const Works = () => {
                             title='ChartsApp'
                             thumbnail={thumbTA}
                         >
-                            My statement of work from the employer
+                            {t('work4.about')}
                         </WorkGridItem>
                     </Section>
                 </SimpleGrid>
@@ -61,4 +63,4 @@ const Works = () => {
 }
 
 export default Works
-export {getServerSideProps} from './_app'
+export {getServerSideProps} from './index'

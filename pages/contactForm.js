@@ -2,9 +2,11 @@ import React, {useRef, useState} from "react"
 import emailjs from '@emailjs/browser';
 import Layout from "../components/layouts/Article";
 import {Button, Heading, Image} from "@chakra-ui/react";
+import {useTranslation} from "next-i18next";
 
 
 const ContactForm = () => {
+    const {t} = useTranslation('common');
     const formRef = useRef();
     const [loading, setLoading] = useState(false);
     const [form, setForm] = useState({name: '', email: '', message: ''});
@@ -54,17 +56,15 @@ const ContactForm = () => {
                 <div className="relative min-h-screen flex items-center justify-center flex-col">
                     <div className="contact-container">
                         <Heading variant="title" pb={3} textDecoration="underline">
-                            Let&apos;s Talk
+                            {t('form')}
                         </Heading>
                         <p className="text-lg mt-3">
-                            Whether you&apos;re looking to build a new website,
-                            improve your existing platform, or bring a unique project to life,
-                            I&apos;m here to help.
+                            {t('form.about.1')}
                         </p>
 
                         <form ref={formRef} onSubmit={handleSubmit} className="mt-12 flex flex-col space-y-7">
                             <label className="space-y-3">
-                                <span className="field-label">Full Name</span>
+                                <span className="field-label">{t('form.name')}</span>
                                 <input
                                     type="text"
                                     name="name"
@@ -78,7 +78,7 @@ const ContactForm = () => {
                             </label>
 
                             <label className="space-y-3">
-                                <span className="field-label">Email address</span>
+                                <span className="field-label">{t('form.email')}</span>
                                 <input
                                     type="email"
                                     name="email"
@@ -92,7 +92,7 @@ const ContactForm = () => {
                             </label>
 
                             <label className="space-y-3">
-                                <span className="field-label">Your message</span>
+                                <span className="field-label">{t('form.message')}</span>
                                 <textarea
                                     name="message"
                                     value={form.message}
@@ -113,17 +113,16 @@ const ContactForm = () => {
                                 colorScheme="teal"
                                 size="lg"
                             >
-                                {loading ? 'Sending...' : 'Send Message'}
+                                {loading ? t('form.loading') : t('form.submit')}
                                 <Image src="/arrow-up.png" alt="arrow-up" className="field-btn_arrow"/>
                             </Button>
                         </form>
                     </div>
                 </div>
-
             </section>
-
         </Layout>
     )
 }
 
 export default ContactForm
+export {getServerSideProps} from './index'

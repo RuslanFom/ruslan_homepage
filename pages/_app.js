@@ -6,17 +6,7 @@ import { AnimatePresence } from 'framer-motion';
 import Chakra from '../components/Chakra';
 import './../global.css';
 import { appWithTranslation } from 'next-i18next';
-import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 
-export async function getServerSideProps({ req, locale }) {
-    return {
-        props: {
-
-            cookies: req.headers.cookie ?? '',
-            ...(await serverSideTranslations(locale, ['common'])),
-        }
-    }
-}
 
 function Website({ Component, pageProps, router }) {
     useEffect(() => {

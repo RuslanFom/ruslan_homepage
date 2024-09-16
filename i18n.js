@@ -9,24 +9,14 @@ i18n
     .use(initReactI18next)
     .init({
         resources: {
-            en: {
-                translation: enTranslations
-            },
-            it: {
-                translation: itTranslations
-            },
-            ru: {
-                translation: ruTranslations
-            },
-            ua: {
-                translation: uaTranslations
-            },
+            en: {translation: enTranslations},
+            it: {translation: itTranslations},
+            ru: {translation: ruTranslations},
+            ua: {translation: uaTranslations},
         },
         lng: "en", // язык по умолчанию
         fallbackLng: "en",
-        interpolation: {
-            escapeValue: false
-        }
+        interpolation: {escapeValue: false}
     });
 
 export default i18n;
