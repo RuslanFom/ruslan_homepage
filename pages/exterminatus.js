@@ -1,6 +1,6 @@
-import Layout from '../components/layouts/article'
+import Layout from '../components/layouts/Article'
 import {Box, Button, Container, /*Heading, useColorModeValue*/} from '@chakra-ui/react'
-import {WorkImage} from '../components/work'
+import {WorkImage} from '../components/Work'
 import NextLink from "next/link";
 /*import Esercizio from "../components/esercizio/esercizio";*/
 

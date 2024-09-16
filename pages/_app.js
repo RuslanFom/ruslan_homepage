@@ -1,9 +1,22 @@
 import { useEffect } from 'react';
-import Layout from '../components/layouts/main';
-import Fonts from '../components/fonts';
+import '../i18n';
+import Layout from '../components/layouts/Main';
+import Fonts from '../components/Fonts';
 import { AnimatePresence } from 'framer-motion';
-import Chakra from '../components/chakra';
+import Chakra from '../components/Chakra';
 import './../global.css';
+import { appWithTranslation } from 'next-i18next';
+import {serverSideTranslations} from "next-i18next/serverSideTranslations";
+
+export async function getServerSideProps({ req, locale }) {
+    return {
+        props: {
+
+            cookies: req.headers.cookie ?? '',
+            ...(await serverSideTranslations(locale, ['common'])),
+        }
+    }
+}
 
 function Website({ Component, pageProps, router }) {
     useEffect(() => {
@@ -40,4 +53,4 @@ function Website({ Component, pageProps, router }) {
     );
 }
 
-export default Website;
+export default appWithTranslation(Website);

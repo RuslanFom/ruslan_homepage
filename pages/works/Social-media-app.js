@@ -1,8 +1,8 @@
 import {Container, Badge, Link, List, ListItem} from '@chakra-ui/react'
 import {ExternalLinkIcon} from '@chakra-ui/icons'
-import {Title, WorkImage, Meta} from '../../components/work'
-import P from '../../components/paragraph'
-import Layout from '../../components/layouts/article'
+import {Title, WorkImage, Meta} from '../../components/Work'
+import P from '../../components/Paragraph'
+import Layout from '../../components/layouts/Article'
 
 const SocialNetWork = () => {
     return (
@@ -44,4 +44,4 @@ const SocialNetWork = () => {
 }
 
 export default SocialNetWork
-export { getServerSideProps } from '../../components/chakra'
+export { getServerSideProps } from '../_app'

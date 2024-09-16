@@ -27,9 +27,6 @@ module.exports = {
           500: '#62646C',
         },
       },
-      backgroundImage: {
-        terminal: "url('/public/terminal.png')",
-      },
     },
   },
   plugins: [],

@@ -1,4 +1,4 @@
-import Logo from './logo'
+import Logo from './Logo'
 import NextLink from 'next/link'
 import {forwardRef} from 'react'
 import {
@@ -16,8 +16,9 @@ import {
     useColorModeValue
 } from '@chakra-ui/react'
 import {HamburgerIcon} from '@chakra-ui/icons'
-import ThemeToggleButton from './theme-toggle-button'
+import ThemeToggleButton from './Theme-toggle-button'
 import {IoLogoGithub} from "react-icons/io5";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const LinkItem = ({href, path, target, children, ...props}) => {
     const isActive = path === href
@@ -104,7 +105,10 @@ const Navbar = ({ path }) => {
                     </LinkItem>
                 </Stack>
 
-                <Box flex={1} align="right">
+                <Box align="right">
+                    <LanguageSwitcher />
+                </Box>
+                <Box flex={1}>
                     <ThemeToggleButton/>
                     <Box ml={2} display={{base: 'inline-block', md: 'none'}}>
                         <Menu isLazy id="navbar-menu">

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import Head from 'next/head'
-import { GridItemStyle } from '../grid-item'
+import { GridItemStyle } from '../Grid-item'
 import PropTypes from 'prop-types' // Импорт для типизации пропсов
 
 

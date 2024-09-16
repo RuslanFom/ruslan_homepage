@@ -1,7 +1,7 @@
-import Layout from "../components/layouts/article"
-import Section from "../components/section"
+import Layout from "../components/layouts/Article"
+import Section from "../components/Section"
 import { Container, Heading, List, SimpleGrid } from "@chakra-ui/react"
-import SkillItem from "../components/skillItem"
+import SkillItem from "../components/SkillItem"
 
 const SkillSection = ({ title, items, columns = [3] }) => (
     <Section>
@@ -43,5 +43,5 @@ const Skills = () => {
 };
 
 export default Skills;
-export { getServerSideProps } from '../components/chakra';
+export { getServerSideProps } from './_app';
 

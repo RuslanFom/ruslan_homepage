@@ -1,6 +1,6 @@
 import {Box, Button, Container} from '@chakra-ui/react';
-import Layout from '../components/layouts/article';
-import Section from '../components/section';
+import Layout from '../components/layouts/Article';
+import Section from '../components/Section';
 import React, {useState, useMemo, useCallback} from 'react';
 import FsLightbox from 'fslightbox-react';
 import {ChevronRightIcon} from '@chakra-ui/icons';
