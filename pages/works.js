@@ -1,11 +1,11 @@
 import {Container, Heading, SimpleGrid} from '@chakra-ui/react'
-import Section from '../components/section'
-import {WorkGridItem} from '../components/grid-item'
+import Section from '../components/Section'
+import {WorkGridItem} from '../components/Grid-item'
 import thumbSN from '../public/images/works/sn.png'
 import thumbTA from '../public/images/works/testAppLogin.png'
 import thumbBA from '../public/images/works/sign-up.png'
 import thumbQR from '../public/images/works/examples/QRepublik1eng.png'
-import Layout from '../components/layouts/article'
+import Layout from '../components/layouts/Article'
 
 const Works = () => {
     return (
@@ -61,4 +61,4 @@ const Works = () => {
 }
 
 export default Works
-export {getServerSideProps} from '../components/chakra'
+export {getServerSideProps} from './_app'

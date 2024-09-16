@@ -1,10 +1,10 @@
-import Layout from '../components/layouts/article'
+import Layout from '../components/layouts/Article'
 import {
     Container,
     Heading,
     SimpleGrid,
 } from '@chakra-ui/react'
-import Section from "../components/section"
+import Section from "../components/Section"
 import {
     IoLogoDiscord,
     IoMailOutline,
@@ -13,7 +13,7 @@ import {
     IoLogoLinkedin,
 } from "react-icons/io5"
 import {BsTelegram} from 'react-icons/bs'
-import SocialButton from "../components/socialButton";
+import SocialButton from "../components/SocialButton";
 
 const Contacts = () => (
     <Layout title='contacts'>

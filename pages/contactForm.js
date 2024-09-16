@@ -1,6 +1,6 @@
 import React, {useRef, useState} from "react"
 import emailjs from '@emailjs/browser';
-import Layout from "../components/layouts/article";
+import Layout from "../components/layouts/Article";
 import {Button, Heading, Image} from "@chakra-ui/react";
 
 
