@@ -34,7 +34,6 @@ const Logo = () => {
                     fontWeight="bold"
                     fontSize="20px"
                     ml={3}
-                    fontSize={20}
                 >
                     {t('name')}
                 </Text>
@@ -44,5 +43,5 @@ const Logo = () => {
 }
 
 export default Logo
-
+export {getServerSideProps} from '../pages/index'
 
