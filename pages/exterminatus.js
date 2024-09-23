@@ -34,3 +34,4 @@ const Exterminatus = () => (
 )
 
 export default Exterminatus
+export {getServerSideProps} from './index'
