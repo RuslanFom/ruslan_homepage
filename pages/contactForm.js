@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
 import Layout from '../components/layouts/Article'
-import { Box, Button, Heading, Image, Text } from '@chakra-ui/react'
+import { Box, Button, Container, Heading, Image, Text } from '@chakra-ui/react'
 import { useTranslation } from 'next-i18next'
 
 const ContactForm = () => {
@@ -50,19 +50,16 @@ const ContactForm = () => {
 
   return (
     <Layout title="contactForm">
-        <Box px={{ base: 5, md: 10}} my={10}>
+      <Container maxW="675px">
+        <Box px={{ base: 5, md: 10 }} my={10}>
           <Box
             pos="relative"
-            flex alignItems="center"
+            flex
+            alignItems="center"
             justifyContent="center"
             flexDir="column"
           >
-            <Box
-              maxW="36rem"
-              pos="relative"
-              px={{ base: 5, md: 10}}
-              mt={12}
-            >
+            <Box maxW="36rem" pos="relative" px={{ base: 5, md: 10 }} mt={12}>
               <Heading variant="title" pb={3} textDecoration="underline">
                 {t('form')}
               </Heading>
@@ -121,7 +118,7 @@ const ContactForm = () => {
                   isDisabled={loading}
                   className="field-btn"
                   colorScheme="teal"
-                  size="lg"
+                  fontSize={{base: '14px', sm: '16px', md: '20px'}}
                 >
                   {loading ? t('form.loading') : t('form.submit')}
                   <Image
@@ -134,6 +131,7 @@ const ContactForm = () => {
             </Box>
           </Box>
         </Box>
+      </Container>
     </Layout>
   )
 }

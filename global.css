@@ -22,7 +22,7 @@
     }
 
     .field-btn {
-        @apply  px-5 py-2 min-h-12 rounded-lg shadow-black-200 shadow-2xl flex justify-center items-center text-lg gap-3;
+        @apply px-5 py-2 min-h-12 rounded-lg shadow-black-200 shadow-2xl flex justify-center items-center gap-2;
     }
 
     .field-btn_arrow {
