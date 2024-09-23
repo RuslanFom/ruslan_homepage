@@ -40,3 +40,4 @@ const QRepublik = () => {
 }
 
 export default QRepublik
+export {getServerSideProps} from '../index'

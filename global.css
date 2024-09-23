@@ -5,10 +5,6 @@
 @tailwind utilities;
 
 @layer utilities {
-    .c-space {
-        @apply sm:px-10 px-5;
-    }
-
     .head-text {
         @apply sm:text-4xl text-3xl font-semibold;
     }
@@ -16,9 +12,6 @@
 
 
     /* contact section */
-    .contact-container {
-        @apply max-w-xl relative z-10 sm:px-10 px-5 mt-12;
-    }
 
     .field-label {
         @apply text-lg;

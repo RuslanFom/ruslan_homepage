@@ -44,3 +44,4 @@ const SocialNetWork = () => {
 }
 
 export default SocialNetWork
+export {getServerSideProps} from '../index'
