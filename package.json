@@ -24,7 +24,7 @@
     "@emotion/styled": "^11.11.0",
     "@sentry/nextjs": "^8.26.0",
     "@vercel/speed-insights": "^1.0.12",
-    "axios": "1.6.0",
+    "axios": "^1.7.7",
     "framer-motion": "^10.16.4",
     "i18next": "^23.15.1",
     "next": "^14.2.7",
@@ -35,7 +35,8 @@
     "react-i18next": "^15.0.2",
     "react-icons": "^4.11.0",
     "sharp": "^0.33.5",
-    "three": "^0.157.0"
+    "three": "^0.157.0",
+    "webpack": "^5.94.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
@@ -44,6 +45,7 @@
     "fslightbox-react": "^1.6.2-2",
     "postcss": "^8.4.45",
     "prettier": "^3.0.3",
-    "tailwindcss": "^3.4.10"
+    "tailwindcss": "^3.4.10",
+    "webpack-cli": "^5.1.4"
   }
 }
