@@ -1,44 +1,54 @@
-import { useEffect } from 'react';
+import { useEffect, useCallback, useMemo } from 'react';
 import '../i18n';
-import Layout from '../components/layouts/Main';
-import Fonts from '../components/Fonts';
 import { AnimatePresence } from 'framer-motion';
-import Chakra from '../components/Chakra';
 import './../global.css';
 import { appWithTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
+import React from 'react';
 
+const Chakra = dynamic(() => import('../components/Chakra'), { ssr: true });
+const Fonts = dynamic(() => import('../components/Fonts'), { ssr: true });
+const Layout = dynamic(() => import('../components/layouts/Main'), { ssr: true });
 
-function Website({ Component, pageProps, router }) {
+function Website({ Component, pageProps }) {
+    const router = useRouter();
+    const MemoizedLayout = useMemo(() => React.memo(Layout), []);
+
+    const handleRouteChange = useCallback(() => {
+        window.scrollTo({ top: 0 });
+    }, []);
+
     useEffect(() => {
-        // Ensures scroll restoration is only set on the client-side
         window.history.scrollRestoration = 'manual';
-
-        // Scroll to top on route change
-        const handleRouteChange = () => {
-            window.scrollTo({ top: 0 });
-        };
-
-        // Add event listener for route changes
         router.events.on('routeChangeComplete', handleRouteChange);
-
-        // Cleanup listener on unmount
         return () => {
             router.events.off('routeChangeComplete', handleRouteChange);
         };
-    }, [router.events]);
+    }, [router.events, handleRouteChange]);
+
+    const memoizedPageProps = useMemo(() => pageProps, [pageProps]);
+
+    const AnimatePresenceWrapper = useMemo(() => (
+        <AnimatePresence
+            mode="wait"
+            initial={true}
+            onExitComplete={() => {
+                if (typeof window !== 'undefined') {
+                    window.scrollTo({ top: 0 });
+                }
+            }}
+        />
+    ), []);
 
     return (
-        <Chakra cookies={pageProps.cookies}>
+        <Chakra cookies={memoizedPageProps.cookies}>
             <Fonts />
-            <Layout router={router}>
-                <AnimatePresence
-                    mode="wait"
-                    initial={true}
-                    onExitComplete={() => window.scrollTo({ top: 0 })}
-                >
-                    <Component {...pageProps} key={router.route} />
-                </AnimatePresence>
-            </Layout>
+            <MemoizedLayout router={router}>
+                {AnimatePresenceWrapper}
+                    <Component {...memoizedPageProps} key={router.route} />
+                {AnimatePresenceWrapper}
+            </MemoizedLayout>
         </Chakra>
     );
 }
