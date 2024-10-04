@@ -79,7 +79,7 @@ const Home = () => {
         { href: "https://twitter.com/PycJIaHWi", icon: IoLogoTwitter, label: "Twitter" },
         { href: "https://facebook.com/рyJIeT", icon: IoLogoFacebook, label: "Facebook" },
         { href: "https://gitlab.com/RuslanFom", icon: IoLogoGitlab, label: "GitLab" },
-        { href: "https://instagram.com/invites/contact/?i=2dtdh2bn3qx6&utm_content=1tllto4", icon: IoLogoInstagram, label: "Instagram" },
+        { href: "https://www.instagram.com/diegofuori?igsh=azJpMmZjZGVsd3B1&utm_source=qr", icon: IoLogoInstagram, label: "Instagram" },
         { href: "https://vk.com/bepJIyckoH", icon: IoLogoVk, label: "Vk" }
     ], [])
 

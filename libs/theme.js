@@ -4,7 +4,8 @@ import { mode } from '@chakra-ui/theme-tools'
 const styles = {
     global: props => ({
         body: {
-            bg: mode('#f0e7db', '#202023')(props)
+            bg: mode('#f0e7db', '#202023')(props),
+            fontFamily: 'var(--font-inter)',
         }
     })
 }
@@ -21,7 +22,10 @@ const components = {
                 marginTop: 3,
                 marginBottom: 4
             }
-        }
+        },
+        baseStyle: {
+            fontFamily: 'var(--font-m-plus-rounded-1c)',
+        },
     },
     Link: {
         baseStyle: props => ({
@@ -32,7 +36,8 @@ const components = {
 }
 
 const fonts = {
-    heading: "'M PLUS Rounded 1c'"
+    heading: 'var(--font-m-plus-rounded-1c)',
+    body: 'var(--font-inter)',
 }
 
 const colors = {
