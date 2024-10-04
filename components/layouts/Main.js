@@ -4,7 +4,7 @@ import { NextSeo } from 'next-seo'
 import dynamic from 'next/dynamic'
 import { Box, Container } from '@chakra-ui/react'
 import { JsonLd } from 'react-schemaorg'
-
+import { mPlusRounded1c } from '../../libs/fonts'
 const Navbar = dynamic(() => import('../Navbar'))
 const VoxelDogLoader = dynamic(() => import("../Voxel-dog-loader"))
 const Footer = dynamic(() => import("../Footer"))
@@ -26,7 +26,7 @@ const Main = ({ children, router }) => {
   }), [])
 
   return (
-    <Box as="main" pb={8} lang="en">
+    <Box as="main" pb={8} lang="en" className={mPlusRounded1c.variable}>
       <Head>
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
       </Head>

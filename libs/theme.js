@@ -3,6 +3,9 @@ import { mode } from '@chakra-ui/theme-tools'
 
 const styles = {
     global: props => ({
+        ':root': {
+            '--font-mplus-rounded-1c': '"M PLUS Rounded 1c", sans-serif',
+        },
         body: {
             bg: mode('#f0e7db', '#202023')(props),
             fontFamily: 'var(--font-inter)',

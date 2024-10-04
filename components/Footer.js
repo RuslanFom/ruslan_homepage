@@ -11,4 +11,3 @@ const Footer = () => {
 }
 
 export default Footer;
-export { getServerSideProps } from '../pages/index';

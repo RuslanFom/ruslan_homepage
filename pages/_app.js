@@ -5,7 +5,7 @@ import { appWithTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import React from 'react';
-import { Inter, M_PLUS_Rounded_1c } from '@next/font/google'
+import { Inter, M_PLUS_Rounded_1c } from "next/font/google"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ subsets: ['latin', 'cyrillic'] })
