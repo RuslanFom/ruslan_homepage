@@ -1,8 +1,37 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useCallback } from 'react'
 import emailjs from '@emailjs/browser'
 import Layout from '../components/layouts/Article'
 import { Box, Button, Container, Heading, Image, Text, VStack, FormControl, FormLabel, Input, Textarea } from '@chakra-ui/react'
 import { useTranslation } from 'next-i18next'
+import { EMAIL_CONFIG } from '../libs/emailConfig'
+
+const InputStyle = {
+  px: 5,
+  py: 2,
+  minH: "14",
+  rounded: "lg",
+  fontSize: "lg",
+  w: "full",
+  bg: "black.200",
+  border: "none",
+  _placeholder: { color: "white.500" },
+  boxShadow: "0 25px 50px -12px #0E0E10",
+  _focus: {
+    outline: "none",
+    boxShadow: "0 25px 50px -12px #0E0E10"
+  }
+}
+
+const FormField = ({ label, name, type = "text", ...props }) => (
+  <FormControl>
+    <FormLabel fontSize="lg">{label}</FormLabel>
+    {type === "textarea" ? (
+      <Textarea name={name} {...InputStyle} {...props} />
+    ) : (
+      <Input type={type} name={name} {...InputStyle} {...props} />
+    )}
+  </FormControl>
+)
 
 const ContactForm = () => {
   const { t } = useTranslation('common')
@@ -10,26 +39,26 @@ const ContactForm = () => {
   const [loading, setLoading] = useState(false)
   const [form, setForm] = useState({ name: '', email: '', message: '' })
 
-  const handleChange = ({ target: { name, value } }) => {
-    setForm({ ...form, [name]: value })
-  }
+  const handleChange = useCallback(({ target: { name, value } }) => {
+    setForm(prev => ({ ...prev, [name]: value }))
+  }, [])
 
-  const handleSubmit = async e => {
+  const handleSubmit = useCallback(async (e) => {
     e.preventDefault()
     setLoading(true)
 
     try {
       await emailjs.send(
-        'service_znpkhbb',
-        'template_sd2uqr3',
+        EMAIL_CONFIG.SERVICE_ID,
+        EMAIL_CONFIG.TEMPLATE_ID,
         {
           from_name: form.name,
-          to_name: 'Ruslan',
+          to_name: EMAIL_CONFIG.TO_NAME,
           from_email: form.email,
-          to_email: 'rusfom28@gmail.com',
+          to_email: EMAIL_CONFIG.TO_EMAIL,
           message: form.message
         },
-        'V-MefjF01ofgpH6wC'
+        EMAIL_CONFIG.USER_ID
       )
       setLoading(false)
       alert('Your message has been sent!')
@@ -40,7 +69,7 @@ const ContactForm = () => {
     } finally {
       setLoading(false)
     }
-  }
+  }, [form])
 
   return (
     <Layout title="contactForm">
@@ -54,85 +83,38 @@ const ContactForm = () => {
               <Text fontSize="lg" mt={3}>{t('form.about.1')}</Text>
 
               <VStack as="form" ref={formRef} onSubmit={handleSubmit} spacing={7} mt={12} align="stretch">
-                <FormControl>
-                  <FormLabel fontSize="lg">{t('form.name')}</FormLabel>
-                  <Input
-                    type="text"
-                    name="name"
-                    value={form.name}
-                    onChange={handleChange}
-                    required
-                    placeholder="ex., John Doe"
-                    aria-label="Full Name"
-                    px={5}
-                    py={2}
-                    minH="14"
-                    rounded="lg"
-                    fontSize="lg"
-                    w="full"
-                    color="white"
-                    bg="black.200"
-                    border="none"
-                    _placeholder={{ color: "white.500" }}
-                    boxShadow="0 25px 50px -12px #0E0E10"
-                    _focus={{
-                      outline: "none",
-                      boxShadow: "0 25px 50px -12px #0E0E10"
-                    }}
-                  />
-                </FormControl>
+                <FormField
+                  label={t('form.name')}
+                  name="name"
+                  value={form.name}
+                  onChange={handleChange}
+                  required
+                  placeholder="ex., John Doe"
+                  aria-label="Full Name"
+                />
 
-                <FormControl>
-                  <FormLabel fontSize="lg">{t('form.email')}</FormLabel>
-                  <Input
-                    type="email"
-                    name="email"
-                    value={form.email}
-                    onChange={handleChange}
-                    required
-                    placeholder="ex., johndoe@gmail.com"
-                    aria-label="Email address"
-                    px={5}
-                    py={2}
-                    minH="14"
-                    rounded="lg"
-                    fontSize="lg"
-                    bg="black.200"
-                    border="none"
-                    _placeholder={{ color: "white.500" }}
-                    boxShadow="0 25px 50px -12px #0E0E10"
-                    _focus={{
-                      outline: "none",
-                      boxShadow: "0 25px 50px -12px #0E0E10"
-                    }}
-                  />
-                </FormControl>
+                <FormField
+                  label={t('form.email')}
+                  name="email"
+                  type="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  required
+                  placeholder="ex., johndoe@gmail.com"
+                  aria-label="Email address"
+                />
 
-                <FormControl>
-                  <FormLabel fontSize="lg">{t('form.message')}</FormLabel>
-                  <Textarea
-                    name="message"
-                    value={form.message}
-                    onChange={handleChange}
-                    required
-                    placeholder="Hi, I wanna give you a job..."
-                    aria-label="Your message"
-                    px={5}
-                    py={2}
-                    minH="14"
-                    rounded="lg"
-                    fontSize="lg"
-                    bg="black.200"
-                    border="none"
-                    _placeholder={{ color: "white.500" }}
-                    boxShadow="0 25px 50px -12px #0E0E10"
-                    _focus={{
-                      outline: "none",
-                      boxShadow: "0 25px 50px -12px #0E0E10"
-                    }}
-                    rows={5}
-                  />
-                </FormControl>
+                <FormField
+                  label={t('form.message')}
+                  name="message"
+                  type="textarea"
+                  value={form.message}
+                  onChange={handleChange}
+                  required
+                  placeholder="Hi, I wanna give you a job..."
+                  aria-label="Your message"
+                  rows={5}
+                />
 
                 <Button
                   type="submit"
