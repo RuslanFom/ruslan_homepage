@@ -1,7 +1,6 @@
 import { useEffect, useCallback, useMemo } from 'react';
 import '../i18n';
 import { AnimatePresence } from 'framer-motion';
-import './../global.css';
 import { appWithTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';

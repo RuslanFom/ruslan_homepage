@@ -26,7 +26,7 @@ const SkillSection = ({ title, items, columns = [3] }) => (
 const Skills = () => {
     const {t} = useTranslation('common');
     const skills = [
-        ['HTML', 'CSS/SASS/SCSS', 'JavaScript', 'TypeScript', 'Three.js', 'React Native', 'Linux'],
+        ['HTML', 'CSS/SCSS', 'JavaScript', 'TypeScript', 'Three.js', 'React Native', 'Linux'],
         ['React', 'Redux', 'Next.js', 'REST API', 'Chakra UI', 'Ant Design', 'Tailwind CSS'],
         ['Git', 'Node.js', 'MongoDB', 'webpack', 'Jest', 'Material UI', 'Python'],
     ];

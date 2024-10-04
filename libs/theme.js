@@ -36,8 +36,8 @@ const components = {
 }
 
 const fonts = {
-    heading: 'var(--font-m-plus-rounded-1c)',
-    body: 'var(--font-inter)',
+    heading: 'var(--font-m-plus-rounded-1c), sans-serif',
+    body: 'var(--font-inter), sans-serif',
 }
 
 const colors = {

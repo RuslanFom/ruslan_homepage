@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
 import Layout from '../components/layouts/Article'
-import { Box, Button, Container, Heading, Image, Text } from '@chakra-ui/react'
+import { Box, Button, Container, Heading, Image, Text, VStack, FormControl, FormLabel, Input, Textarea } from '@chakra-ui/react'
 import { useTranslation } from 'next-i18next'
 
 const ContactForm = () => {
@@ -9,13 +9,13 @@ const ContactForm = () => {
   const formRef = useRef()
   const [loading, setLoading] = useState(false)
   const [form, setForm] = useState({ name: '', email: '', message: '' })
+
   const handleChange = ({ target: { name, value } }) => {
     setForm({ ...form, [name]: value })
   }
 
   const handleSubmit = async e => {
     e.preventDefault()
-
     setLoading(true)
 
     try {
@@ -32,14 +32,8 @@ const ContactForm = () => {
         'V-MefjF01ofgpH6wC'
       )
       setLoading(false)
-
       alert('Your message has been sent!')
-
-      setForm({
-        name: '',
-        email: '',
-        message: ''
-      })
+      setForm({ name: '', email: '', message: '' })
     } catch (error) {
       console.error('Error sending email:', error)
       alert('Something went wrong, please try again.')
@@ -52,82 +46,128 @@ const ContactForm = () => {
     <Layout title="contactForm">
       <Container maxW="675px">
         <Box px={{ base: 5, md: 10 }} my={10}>
-          <Box
-            pos="relative"
-            flex
-            alignItems="center"
-            justifyContent="center"
-            flexDir="column"
-          >
+          <Box pos="relative" display="flex" alignItems="center" justifyContent="center" flexDirection="column">
             <Box maxW="36rem" pos="relative" px={{ base: 5, md: 10 }} mt={12}>
               <Heading variant="title" pb={3} textDecoration="underline">
                 {t('form')}
               </Heading>
-              <Text className="text-lg mt-3">{t('form.about.1')}</Text>
+              <Text fontSize="lg" mt={3}>{t('form.about.1')}</Text>
 
-              <form
-                ref={formRef}
-                onSubmit={handleSubmit}
-                className="mt-12 flex flex-col space-y-7"
-              >
-                <label className="space-y-3">
-                  <span className="field-label">{t('form.name')}</span>
-                  <input
+              <VStack as="form" ref={formRef} onSubmit={handleSubmit} spacing={7} mt={12} align="stretch">
+                <FormControl>
+                  <FormLabel fontSize="lg">{t('form.name')}</FormLabel>
+                  <Input
                     type="text"
                     name="name"
                     value={form.name}
                     onChange={handleChange}
                     required
-                    className="field-input"
                     placeholder="ex., John Doe"
                     aria-label="Full Name"
+                    px={5}
+                    py={2}
+                    minH="14"
+                    rounded="lg"
+                    fontSize="lg"
+                    w="full"
+                    color="white"
+                    bg="black.200"
+                    border="none"
+                    _placeholder={{ color: "white.500" }}
+                    boxShadow="0 25px 50px -12px #0E0E10"
+                    _focus={{
+                      outline: "none",
+                      boxShadow: "0 25px 50px -12px #0E0E10"
+                    }}
                   />
-                </label>
+                </FormControl>
 
-                <label className="space-y-3">
-                  <span className="field-label">{t('form.email')}</span>
-                  <input
+                <FormControl>
+                  <FormLabel fontSize="lg">{t('form.email')}</FormLabel>
+                  <Input
                     type="email"
                     name="email"
                     value={form.email}
                     onChange={handleChange}
                     required
-                    className="field-input"
                     placeholder="ex., johndoe@gmail.com"
                     aria-label="Email address"
+                    px={5}
+                    py={2}
+                    minH="14"
+                    rounded="lg"
+                    fontSize="lg"
+                    bg="black.200"
+                    border="none"
+                    _placeholder={{ color: "white.500" }}
+                    boxShadow="0 25px 50px -12px #0E0E10"
+                    _focus={{
+                      outline: "none",
+                      boxShadow: "0 25px 50px -12px #0E0E10"
+                    }}
                   />
-                </label>
+                </FormControl>
 
-                <label className="space-y-3">
-                  <span className="field-label">{t('form.message')}</span>
-                  <textarea
+                <FormControl>
+                  <FormLabel fontSize="lg">{t('form.message')}</FormLabel>
+                  <Textarea
                     name="message"
                     value={form.message}
                     onChange={handleChange}
                     required
-                    rows={5}
-                    className="field-input"
                     placeholder="Hi, I wanna give you a job..."
                     aria-label="Your message"
+                    px={5}
+                    py={2}
+                    minH="14"
+                    rounded="lg"
+                    fontSize="lg"
+                    bg="black.200"
+                    border="none"
+                    _placeholder={{ color: "white.500" }}
+                    boxShadow="0 25px 50px -12px #0E0E10"
+                    _focus={{
+                      outline: "none",
+                      boxShadow: "0 25px 50px -12px #0E0E10"
+                    }}
+                    rows={5}
                   />
-                </label>
+                </FormControl>
+
                 <Button
                   type="submit"
-                  scroll={false}
-                  aria-busy={loading}
-                  isDisabled={loading}
-                  className="field-btn"
-                  colorScheme="teal"
-                  fontSize={{base: '14px', sm: '16px', md: '20px'}}
+                  isLoading={loading}
+                  loadingText={t('form.loading')}
+                  bg="teal.500"
+                  color="white"
+                  px={{ base: 3, sm: 4, md: 5 }}
+                  py={{ base: 1, sm: 1.5, md: 2 }}
+                  minH={{ base: "10", sm: "11", md: "12" }}
+                  rounded="lg"
+                  fontSize={{ base: '12px', sm: '14px', md: '16px', lg: '18px' }}
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  boxShadow="0 25px 50px -12px #0E0E10"
+                  _focus={{
+                    outline: "none",
+                    boxShadow: "0 25px 50px -12px #0E0E10"
+                  }}
+                  _hover={{ bg: "teal.600", boxShadow: "0 0 15px rgba(0, 0, 0, 0.3)" }}
+                  rightIcon={
+                    <Image
+                      src="/arrow-up.png"
+                      alt="arrow-up"
+                      w={{ base: "2", sm: "2.5" }}
+                      h={{ base: "2", sm: "2.5" }}
+                      filter="invert(1) brightness(0)"
+                      ml={{ base: 1, sm: 2 }}
+                    />
+                  }
                 >
                   {loading ? t('form.loading') : t('form.submit')}
-                  <Image
-                    src="/arrow-up.png"
-                    alt="arrow-up"
-                    className="field-btn_arrow"
-                  />
                 </Button>
-              </form>
+              </VStack>
             </Box>
           </Box>
         </Box>
