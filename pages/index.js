@@ -54,12 +54,13 @@ const ProfileImage = () => (
 )
 
 const Home = () => {
+    const bgColor = useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')
     const { t } = useTranslation('common')
 
     const welcomeBox = useMemo(() => (
       <Box
         borderRadius="lg"
-        bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
+        bg={bgColor}
         p={3}
         mb={6}
         textAlign="center"
@@ -67,7 +68,7 @@ const Home = () => {
       >
           {t('welcome')}
       </Box>
-    ), [t])
+    ), [t, bgColor])
 
     const handleSkillsClick = useCallback(() => {
         // Логика обработки клика (если необходимо)
