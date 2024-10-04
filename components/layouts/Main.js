@@ -26,20 +26,9 @@ const Main = ({ children, router }) => {
   }), [])
 
   return (
-    <Box as="main" pb={8}>
+    <Box as="main" pb={8} lang="en">
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content={meta.description} />
-        <meta name="author" content={meta.author} />
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-        <meta name="twitter:title" content={meta.title} />
-        <meta name="twitter:card" content="summary" />
-        <meta property="og:site_name" content={meta.title} />
-        <meta property="og:title" content={meta.title} />
-        <meta property="og:description" content={meta.description} />
-        <meta property="og:url" content={meta.url} />
-        <meta property="og:type" content="website" />
-        <title>{meta.title}</title>
       </Head>
       <NextSeo
         title={meta.title}
@@ -66,20 +55,30 @@ const Main = ({ children, router }) => {
           site: meta.twitterHandle,
           cardType: 'summary_large_image'
         }}
+        additionalMetaTags={[
+          {
+            name: 'viewport',
+            content: 'width=device-width, initial-scale=1'
+          },
+          {
+            name: 'author',
+            content: meta.author
+          }
+        ]}
       />
       <JsonLd
         item={{
-        "@context": "https://schema.org",
-        "@type": "Person",
-        name: meta.author,
-        jobTitle: "Full Stack Developer",
-        url: meta.url,
-        sameAs: [
-          "https://github.com/RuslanFom",
-          "https://linkedin.com/in/fom28"
-        ]
-      }}
-        />
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: meta.author,
+          jobTitle: "Full Stack Developer",
+          url: meta.url,
+          sameAs: [
+            "https://github.com/RuslanFom",
+            "https://linkedin.com/in/fom28"
+          ]
+        }}
+      />
 
       <Navbar path={router.asPath} />
 
