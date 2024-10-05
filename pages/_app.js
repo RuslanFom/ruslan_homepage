@@ -5,15 +5,9 @@ import { appWithTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import React from 'react';
-import { Inter, M_PLUS_Rounded_1c } from "next/font/google"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import Fonts from '../components/Fonts'
 
-const inter = Inter({ subsets: ['latin', 'cyrillic'] })
-const mPlusRounded1c = M_PLUS_Rounded_1c({
-  weight: ['300', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-})
 
 const Chakra = dynamic(() => import('../components/Chakra'), { ssr: true });
 const Layout = dynamic(() => import('../components/layouts/Main'), { ssr: true });
@@ -50,12 +44,7 @@ function Website({ Component, pageProps }) {
 
   return (
     <Chakra cookies={memoizedPageProps.cookies}>
-      <style jsx global>{`
-                :root {
-                    --font-inter: ${inter.style.fontFamily};
-                    --font-m-plus-rounded-1c: ${mPlusRounded1c.style.fontFamily};
-                }
-            `}</style>
+      <Fonts />
       <MemoizedLayout router={router}>
         {AnimatePresenceWrapper}
         <Component {...memoizedPageProps} key={router.route} />

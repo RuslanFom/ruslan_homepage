@@ -27,7 +27,7 @@ const Skills = () => {
     const {t} = useTranslation('common');
     const skills = [
         ['HTML', 'CSS/SCSS', 'JavaScript', 'TypeScript', 'Three.js', 'React Native', 'Linux'],
-        ['React', 'Redux', 'Next.js', 'REST API', 'Chakra UI', 'Ant Design', 'Tailwind CSS'],
+        ['React', 'Redux', 'Next.js', 'REST API', 'Chakra UI', 'Ant Design', 'Tailwind'],
         ['Git', 'Node.js', 'MongoDB', 'webpack', 'Jest', 'Material UI', 'Python'],
     ];
 
