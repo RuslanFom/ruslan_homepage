@@ -34,5 +34,7 @@
   "form.email": "Email address",
   "form.message": "Your message",
   "form.submit": "Send Message",
-  "form.loading": "Sending..."
+  "form.loading": "Sending...",
+  "form.success": "Your message has been sent successfully!",
+  "form.error": "Something went wrong. Please try again."
 }

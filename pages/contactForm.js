@@ -16,8 +16,7 @@ import {
 } from '@chakra-ui/react'
 import { useTranslation } from 'next-i18next'
 
-
-const FormField = ({ label, name, type = 'text', ...props }) => (
+const FormField = React.memo(({ label, name, type = 'text', ...props }) => (
   <FormControl>
     <FormLabel fontSize="lg">{label}</FormLabel>
     {type === 'textarea' ? (
@@ -26,12 +25,25 @@ const FormField = ({ label, name, type = 'text', ...props }) => (
       <Input type={type} name={name} variant="custom" {...props} />
     )}
   </FormControl>
-)
+))
 
-const ContactForm = () => {
-  const { t } = useTranslation('common')
+const MessageAlert = ({ message }) => {
+  if (!message.content) return null;
+  
+  return (
+    <Alert status={message.type === 'success' ? 'success' : 'error'} mt={4}>
+      <AlertIcon />
+      {message.content}
+    </Alert>
+  );
+};
+
+
+const ContactForm = React.memo(() => {
+  const { t } = useTranslation('common', { useSuspense: false })
   const formRef = useRef()
   const [loading, setLoading] = useState(false)
+  const [message, setMessage] = useState({ type: '', content: '' });
   const [form, setForm] = useState({ name: '', email: '', message: '' })
 
   const handleChange = useCallback(({ target: { name, value } }) => {
@@ -42,6 +54,7 @@ const ContactForm = () => {
     async e => {
       e.preventDefault()
       setLoading(true)
+      setMessage({ type: '', content: '' }) 
 
       try {
         await emailjs.send(
@@ -57,16 +70,16 @@ const ContactForm = () => {
           process.env.NEXT_PUBLIC_EMAIL_USER_ID
         )
         setLoading(false)
-        alert('Your message has been sent!')
+        setMessage({ type: 'success', content: t('form.success') })
         setForm({ name: '', email: '', message: '' })
       } catch (error) {
         console.error('Error sending email:', error)
-        alert('Something went wrong, please try again.')
+        setMessage({ type: 'error', content: t('form.error') })
       } finally {
         setLoading(false)
       }
     },
-    [form]
+    [form, t]
   )
 
   return (
@@ -150,6 +163,7 @@ const ContactForm = () => {
                 >
                   {loading ? t('form.loading') : t('form.submit')}
                 </Button>
+                <MessageAlert message={message} />
               </VStack>
             </Box>
           </Box>
@@ -157,7 +171,7 @@ const ContactForm = () => {
       </Container>
     </Layout>
   )
-}
+})
 
 export default ContactForm
 export { getServerSideProps } from './index'

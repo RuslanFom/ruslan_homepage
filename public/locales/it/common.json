@@ -34,5 +34,7 @@
   "form.email": "Indirizzo email",
   "form.message": "Il tuo messaggio",
   "form.submit": "Invia messaggio",
-  "form.loading": "Invio in corso..."
+  "form.loading": "Invio in corso...",
+  "form.success": "Il tuo messaggio è stato inviato con successo!",
+  "form.error": "Qualcosa è andato storto. Per favore, riprova."
 }
