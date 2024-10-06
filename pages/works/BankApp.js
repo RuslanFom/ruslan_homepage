@@ -29,13 +29,13 @@ const BankApp = () => {
                     </ListItem>
                 </List>
 
-                <WorkImage src="/images/works/home.png" alt="F-Bank" />
-                <WorkImage src="/images/works/my-banks.png" alt="F-Bank" />
-                <WorkImage src="/images/works/connect-bank.png" alt="F-Bank" />
-                <WorkImage src="/images/works/sign-in.png" alt="F-Bank" />
-                <WorkImage src="/images/works/sign-up.png" alt="F-Bank" />
-                <WorkImage src="/images/works/trans-history.png" alt="F-Bank" />
-                <WorkImage src="/images/works/transfer-funds.png" alt="F-Bank" />
+                <WorkImage src="/images/works/home.webp" alt="F-Bank" />
+                <WorkImage src="/images/works/my-banks.webp" alt="F-Bank" />
+                <WorkImage src="/images/works/connect-bank.webp" alt="F-Bank" />
+                <WorkImage src="/images/works/sign-in.webp" alt="F-Bank" />
+                <WorkImage src="/images/works/sign-up.webp" alt="F-Bank" />
+                <WorkImage src="/images/works/trans-history.webp" alt="F-Bank" />
+                <WorkImage src="/images/works/transfer-funds.webp" alt="F-Bank" />
             </Container>
         </Layout>
     )

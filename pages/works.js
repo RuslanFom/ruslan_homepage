@@ -1,10 +1,10 @@
 import {Container, Heading, SimpleGrid} from '@chakra-ui/react'
 import Section from '../components/Section'
 import {WorkGridItem} from '../components/Grid-item'
-import thumbSN from '../public/images/works/sn.png'
-import thumbTA from '../public/images/works/testAppLogin.png'
-import thumbBA from '../public/images/works/sign-up.png'
-import thumbQR from '../public/images/works/examples/QRepublik1eng.png'
+import thumbSN from '../public/images/works/sn.webp'
+import thumbTA from '../public/images/works/testAppLogin.webp'
+import thumbBA from '../public/images/works/sign-up.webp'
+import thumbQR from '../public/images/works/examples/QRepublik1eng.webp'
 import Layout from '../components/layouts/Article'
 import {useTranslation} from "next-i18next";
 

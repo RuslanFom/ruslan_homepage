@@ -27,10 +27,10 @@ const ChartAppWork = () => {
                     </ListItem>
                 </List>
 
-                <WorkImage src="/images/works/testAppLogin.png" alt="ChartsApp" />
-                <WorkImage src="/images/works/testAppLoginFail.png" alt="ChartsApp" />
-                <WorkImage src="/images/works/testAppGraphics.png" alt="ChartsApp" />
-                <WorkImage src="/images/works/testAppGraphics2.png" alt="ChartsApp" />
+                <WorkImage src="/images/works/testAppLogin.webp" alt="ChartsApp" />
+                <WorkImage src="/images/works/testAppLoginFail.webp" alt="ChartsApp" />
+                <WorkImage src="/images/works/testAppGraphics.webp" alt="ChartsApp" />
+                <WorkImage src="/images/works/testAppGraphics2.webp" alt="ChartsApp" />
             </Container>
         </Layout>
     )

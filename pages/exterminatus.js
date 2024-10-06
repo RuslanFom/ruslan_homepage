@@ -7,7 +7,7 @@ import NextLink from "next/link";
 const Exterminatus = () => (
     <Layout title='exterminatus'>
         <Container>
-            <WorkImage src="/images/works/garbage.jpg"/>
+            <WorkImage src="/images/works/garbage.webp"/>
         </Container>
         {/*TRAINING NEW FEATURE*/}
 {/*

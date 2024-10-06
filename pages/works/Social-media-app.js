@@ -34,10 +34,10 @@ const SocialNetWork = () => {
                     </ListItem>
                 </List>
 
-                <WorkImage src="/images/works/sn.png" alt="Social-media-app" />
-                <WorkImage src="/images/works/sn2.png" alt="Social-media-app" />
-                <WorkImage src="/images/works/sn3.png" alt="Social-media-app" />
-                <WorkImage src="/images/works/sn4.png" alt="Social-media-app" />
+                <WorkImage src="/images/works/sn.webp" alt="Social-media-app" />
+                <WorkImage src="/images/works/sn2.webp" alt="Social-media-app" />
+                <WorkImage src="/images/works/sn3.webp" alt="Social-media-app" />
+                <WorkImage src="/images/works/sn4.webp" alt="Social-media-app" />
             </Container>
         </Layout>
     )

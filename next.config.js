@@ -5,6 +5,9 @@ const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
     i18n,
+    images: {
+      formats: ['image/avif', 'image/webp'],
+  },
   };
 
 module.exports = withSentryConfig(nextConfig, {

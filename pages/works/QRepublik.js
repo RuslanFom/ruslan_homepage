@@ -27,13 +27,13 @@ const QRepublik = () => {
                     </ListItem>
                 </List>
 
-                <WorkImage src="/images/works/examples/loginQRep.png" alt="QRepublik" />
-                <WorkImage src="/images/works/examples/QRepublik1eng.png" alt="QRepublik" />
-                <WorkImage src="/images/works/examples/QRepublik2eng.png" alt="QRepublik" />
-                <WorkImage src="/images/works/examples/QRepublik3eng.png" alt="QRepublik" />
-                <WorkImage src="/images/works/examples/QRepublik4eng.png" alt="QRepublik" />
-                <WorkImage src="/images/works/examples/QRepublik5eng.png" alt="QRepublik" />
-                <WorkImage src="/images/works/examples/QRepublik6eng.png" alt="QRepublik" />
+                <WorkImage src="/images/works/examples/loginQRep.webp" alt="QRepublik" />
+                <WorkImage src="/images/works/examples/QRepublik1eng.webp" alt="QRepublik" />
+                <WorkImage src="/images/works/examples/QRepublik2eng.webp" alt="QRepublik" />
+                <WorkImage src="/images/works/examples/QRepublik3eng.webp" alt="QRepublik" />
+                <WorkImage src="/images/works/examples/QRepublik4eng.webp" alt="QRepublik" />
+                <WorkImage src="/images/works/examples/QRepublik5eng.webp" alt="QRepublik" />
+                <WorkImage src="/images/works/examples/QRepublik6eng.webp" alt="QRepublik" />
             </Container>
         </Layout>
     )
