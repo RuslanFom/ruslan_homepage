@@ -12,7 +12,7 @@ import {
   FormControl,
   FormLabel,
   Input,
-  Textarea
+  Textarea, Alert, AlertIcon
 } from '@chakra-ui/react'
 import { useTranslation } from 'next-i18next'
 
