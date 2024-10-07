@@ -1,5 +1,4 @@
 import React, { useRef, useState, useCallback } from 'react'
-import emailjs from '@emailjs/browser'
 import Layout from '../components/layouts/Article'
 import {
   Box,
@@ -9,23 +8,13 @@ import {
   Image,
   Text,
   VStack,
-  FormControl,
-  FormLabel,
-  Input,
-  Textarea, Alert, AlertIcon
+  Alert, AlertIcon
 } from '@chakra-ui/react'
 import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
+import { useEmailSender } from '../hooks/useEmailSender';
 
-const FormField = React.memo(({ label, name, type = 'text', ...props }) => (
-  <FormControl>
-    <FormLabel fontSize="lg">{label}</FormLabel>
-    {type === 'textarea' ? (
-      <Textarea name={name} variant="custom" {...props} />
-    ) : (
-      <Input type={type} name={name} variant="custom" {...props} />
-    )}
-  </FormControl>
-))
+const FormField = dynamic(() => import('../components/FormField'), { ssr: false })
 
 const MessageAlert = ({ message }) => {
   if (!message.content) return null;
@@ -39,48 +28,23 @@ const MessageAlert = ({ message }) => {
 };
 
 
-const ContactForm = React.memo(() => {
+const ContactForm = () => {
   const { t } = useTranslation('common', { useSuspense: false })
   const formRef = useRef()
-  const [loading, setLoading] = useState(false)
-  const [message, setMessage] = useState({ type: '', content: '' });
   const [form, setForm] = useState({ name: '', email: '', message: '' })
+  const { sendEmail, loading, message } = useEmailSender();
 
   const handleChange = useCallback(({ target: { name, value } }) => {
     setForm(prev => ({ ...prev, [name]: value }))
   }, [])
 
-  const handleSubmit = useCallback(
-    async e => {
-      e.preventDefault()
-      setLoading(true)
-      setMessage({ type: '', content: '' }) 
-
-      try {
-        await emailjs.send(
-          process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID,
-          process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID,
-          {
-            from_name: form.name,
-            to_name: process.env.NEXT_PUBLIC_EMAIL_TO_NAME,
-            from_email: form.email,
-            to_email: process.env.NEXT_PUBLIC_EMAIL_TO_EMAIL,
-            message: form.message
-          },
-          process.env.NEXT_PUBLIC_EMAIL_USER_ID
-        )
-        setLoading(false)
-        setMessage({ type: 'success', content: t('form.success') })
-        setForm({ name: '', email: '', message: '' })
-      } catch (error) {
-        console.error('Error sending email:', error)
-        setMessage({ type: 'error', content: t('form.error') })
-      } finally {
-        setLoading(false)
-      }
-    },
-    [form, t]
-  )
+  const handleSubmit = useCallback(async (e) => {
+    e.preventDefault();
+    const success = await sendEmail(form, t);
+    if (success) {
+      setForm({ name: '', email: '', message: '' });
+    }
+  }, [form, sendEmail, t]);
 
   return (
     <Layout title="contactForm">
@@ -171,7 +135,7 @@ const ContactForm = React.memo(() => {
       </Container>
     </Layout>
   )
-})
+}
 
 export default ContactForm
 export { getServerSideProps } from './index'

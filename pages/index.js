@@ -1,4 +1,4 @@
-import { useMemo, useCallback } from 'react'
+import React, { useMemo, useCallback } from 'react'
 import NextLink from 'next/link'
 import {
     Container,
@@ -41,6 +41,15 @@ export const getServerSideProps = async ({ req, locale }) => {
     }
 }
 
+const socialLinks = [
+    { href: "https://github.com/RuslanFom", icon: IoLogoGithub, label: "GitHub" },
+    { href: "https://twitter.com/PycJIaHWi", icon: IoLogoTwitter, label: "Twitter" },
+    { href: "https://facebook.com/рyJIeT", icon: IoLogoFacebook, label: "Facebook" },
+    { href: "https://gitlab.com/RuslanFom", icon: IoLogoGitlab, label: "GitLab" },
+    { href: "https://www.instagram.com/diegofuori?igsh=azJpMmZjZGVsd3B1&utm_source=qr", icon: IoLogoInstagram, label: "Instagram" },
+    { href: "https://vk.com/bepJIyckoH", icon: IoLogoVk, label: "Vk" }
+]
+
 const ProfileImage = () => (
   <Image
     src="/images/ruslan.jpg"
@@ -75,14 +84,7 @@ const Home = () => {
         // Логика обработки клика (если необходимо)
     }, [])
 
-    const socialLinks = useMemo(() => [
-        { href: "https://github.com/RuslanFom", icon: IoLogoGithub, label: "GitHub" },
-        { href: "https://twitter.com/PycJIaHWi", icon: IoLogoTwitter, label: "Twitter" },
-        { href: "https://facebook.com/рyJIeT", icon: IoLogoFacebook, label: "Facebook" },
-        { href: "https://gitlab.com/RuslanFom", icon: IoLogoGitlab, label: "GitLab" },
-        { href: "https://www.instagram.com/diegofuori?igsh=azJpMmZjZGVsd3B1&utm_source=qr", icon: IoLogoInstagram, label: "Instagram" },
-        { href: "https://vk.com/bepJIyckoH", icon: IoLogoVk, label: "Vk" }
-    ], [])
+
 
     return (
       <Layout>

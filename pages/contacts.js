@@ -1,4 +1,4 @@
-import { useMemo, useCallback } from 'react'
+import { useCallback } from 'react'
 import dynamic from 'next/dynamic'
 import { Container, Heading } from '@chakra-ui/react'
 import {
@@ -16,44 +16,41 @@ const Layout = dynamic(() => import('../components/layouts/Article'))
 const Section = dynamic(() => import('../components/Section'))
 const SocialButton = dynamic(() => import('../components/SocialButton'))
 
+const socialLinks = [
+  {
+    href: 'https://t.me/PycJIaHWi',
+    icon: BsTelegram,
+    label: 'Telegram'
+  },
+  {
+    href: 'https://wa.me/393756267642',
+    icon: IoLogoWhatsapp,
+    label: 'WhatsApp'
+  },
+  {
+    href: 'mailto:ruslanfom@gmail.com',
+    icon: IoMailOutline,
+    label: 'ruslanfom@gmail.com'
+  },
+  {
+    href: 'https://join.skype.com/invite/AeoxV93ceXUG',
+    icon: IoLogoSkype,
+    label: 'Skype'
+  },
+  {
+    href: 'https://discord.gg/QQGMRCZ4',
+    icon: IoLogoDiscord,
+    label: 'Discord'
+  },
+  {
+    href: 'https://www.linkedin.com/in/fom28',
+    icon: IoLogoLinkedin,
+    label: 'Linkedin'
+  }
+]
+
 const Contacts = () => {
   const { t } = useTranslation('common')
-
-  const socialLinks = useMemo(
-    () => [
-      {
-        href: 'https://t.me/PycJIaHWi',
-        icon: BsTelegram,
-        label: 'Telegram'
-      },
-      {
-        href: 'https://wa.me/393756267642',
-        icon: IoLogoWhatsapp,
-        label: 'WhatsApp'
-      },
-      {
-        href: 'mailto:ruslanfom@gmail.com',
-        icon: IoMailOutline,
-        label: 'ruslanfom@gmail.com'
-      },
-      {
-        href: 'https://join.skype.com/invite/AeoxV93ceXUG',
-        icon: IoLogoSkype,
-        label: 'Skype'
-      },
-      {
-        href: 'https://discord.gg/QQGMRCZ4',
-        icon: IoLogoDiscord,
-        label: 'Discord'
-      },
-      {
-        href: 'https://www.linkedin.com/in/fom28',
-        icon: IoLogoLinkedin,
-        label: 'Linkedin'
-      }
-    ],
-    []
-  )
 
   const handleSocialClick = useCallback(url => {
     // Здесь может быть дополнительная логика обработки клика
