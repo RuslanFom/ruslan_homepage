@@ -8,11 +8,12 @@ import {
   Image,
   Text,
   VStack,
-  Alert, AlertIcon
+  Alert, AlertIcon, FormControl, Flex, FormErrorMessage
 } from '@chakra-ui/react'
 import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
 import { useEmailSender } from '../hooks/useEmailSender';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 
 const FormField = dynamic(() => import('../components/FormField'), { ssr: false })
 
@@ -32,7 +33,18 @@ const ContactForm = () => {
   const { t } = useTranslation('common', { useSuspense: false })
   const formRef = useRef()
   const [form, setForm] = useState({ name: '', email: '', message: '' })
+  const [captchaToken, setCaptchaToken] = useState(null);
+  const [captchaError, setCaptchaError] = useState(null);
   const { sendEmail, loading, message } = useEmailSender();
+
+  const handleVerificationSuccess = (token) => {
+    setCaptchaToken(token);
+    setCaptchaError(null);
+  };
+
+  const handleVerificationError = () => {
+    setCaptchaError(t('form.captchaError'));
+  };
 
   const handleChange = useCallback(({ target: { name, value } }) => {
     setForm(prev => ({ ...prev, [name]: value }))
@@ -40,11 +52,16 @@ const ContactForm = () => {
 
   const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
-    const success = await sendEmail(form, t);
+    if (!captchaToken) {
+      setCaptchaError(t('form.captchaRequired'));
+      return;
+    }
+    const success = await sendEmail({ ...form, captchaToken }, t);
     if (success) {
       setForm({ name: '', email: '', message: '' });
+      setCaptchaToken(null);
     }
-  }, [form, sendEmail, t]);
+  }, [form, sendEmail, t, captchaToken]);
 
   return (
     <Layout title="contactForm">
@@ -108,6 +125,19 @@ const ContactForm = () => {
                   rows={5}
                   variant="custom"
                 />
+                {/* Компонент hCaptcha */}
+                <Box>
+                  <FormControl isRequired isInvalid={!!captchaError} mb={4} >
+                    <Flex>
+                      <HCaptcha
+                        sitekey="75e27526-7918-486c-bca6-e64809a6452a"
+                        onVerify={handleVerificationSuccess}
+                        onError={handleVerificationError}
+                      />
+                      <FormErrorMessage>{captchaError}</FormErrorMessage>
+                    </Flex>
+                  </FormControl>
+                </Box>
 
                 <Button
                   type="submit"

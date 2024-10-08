@@ -81,7 +81,7 @@ const Home = () => {
     ), [t, bgColor])
 
     const handleSkillsClick = useCallback(() => {
-        // Логика обработки клика (если необходимо)
+        // Логика обработки клика 
     }, [])
 
 
