@@ -154,7 +154,6 @@ const Home = () => {
                       { year: '2016', text: 'bio.p3' },
                       { year: '2017', text: 'bio.p4' },
                       { year: '2020', text: 'bio.p5' },
-                      { year: '2021', text: 'bio.p6' },
                       { year: '2023', text: 'bio.p7' }
                   ].map((item, index) => (
                     <BioSection key={index}>
