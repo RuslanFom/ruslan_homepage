@@ -7,6 +7,31 @@ async function verifyHcaptcha(token, secret) {
   return response.json()
 }
 
+/**
+ * EmailJS often enables "Restrict to domains" for the public key. Browser sends Origin;
+ * server-side fetch does not — EmailJS rejects the request. We mirror the site URL from the incoming request.
+ */
+function getSiteOrigin(req) {
+  const explicit = process.env.NEXT_PUBLIC_SITE_URL
+  if (explicit && /^https?:\/\//i.test(String(explicit).trim())) {
+    return String(explicit).trim().replace(/\/$/, '')
+  }
+
+  const hostRaw =
+    req.headers['x-forwarded-host'] || req.headers.host || process.env.VERCEL_URL
+  const host = hostRaw?.split(',')[0]?.trim()
+  if (!host) return null
+
+  if (host.includes('localhost') || host.startsWith('127.0.0.1')) {
+    const proto = (req.headers['x-forwarded-proto'] || 'http').split(',')[0]?.trim()
+    return `${proto}://${host}`
+  }
+
+  const proto = (req.headers['x-forwarded-proto'] || 'https').split(',')[0]?.trim()
+  const normalizedHost = host.replace(/^https?:\/\//i, '')
+  return `${proto}://${normalizedHost}`
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST')
@@ -50,9 +75,19 @@ export default async function handler(req, res) {
   }
 
   try {
+    const siteOrigin = getSiteOrigin(req)
+    const emailHeaders = {
+      'Content-Type': 'application/json',
+      'User-Agent': 'Next.js-ContactForm/1.0',
+    }
+    if (siteOrigin) {
+      emailHeaders.Origin = siteOrigin
+      emailHeaders.Referer = `${siteOrigin}/`
+    }
+
     const emailRes = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: emailHeaders,
       body: JSON.stringify({
         lib_version: 'next-api',
         user_id: publicKey,
