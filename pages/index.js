@@ -171,7 +171,7 @@ const Home = () => {
                     rightIcon={<ChevronRightIcon />}
                     colorScheme="teal"
                   >
-                      {t('form')}!
+                      {t('form.heading')}!
                   </Button>
               </Box>
 

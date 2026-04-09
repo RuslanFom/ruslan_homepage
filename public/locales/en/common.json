@@ -14,7 +14,7 @@
   "bio.p4": "Worked at United Nations in Italy as political affairs officer",
   "bio.p5": "Start to study and work hard in It-Incubator",
   "bio.p7": "Works as a Front-End Developer in QRepublik company",
-  "form": "Let's talk",
+  "form.heading": "Let's talk",
   "web": "On the web",
   "footer": "Ruslan Fomin. All Rights Reserved.",
   "nav.works": "Works",
@@ -35,5 +35,9 @@
   "form.submit": "Send Message",
   "form.loading": "Sending...",
   "form.success": "Your message has been sent successfully!",
-  "form.error": "Something went wrong. Please try again."
+  "form.error": "Something went wrong. Please try again.",
+  "form.errorCaptcha": "Captcha verification failed. Please try again.",
+  "form.errorConfig": "The contact form is temporarily unavailable. Please try again later.",
+  "form.captchaError": "Captcha could not load. Please refresh the page or disable blockers.",
+  "form.captchaRequired": "Please complete the captcha before sending."
 }

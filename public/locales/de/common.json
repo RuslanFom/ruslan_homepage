@@ -14,7 +14,7 @@
   "bio.p4": "Arbeitete bei den Vereinten Nationen in Italien als politischer Referent",
   "bio.p5": "Begann hart zu lernen und bei It-Incubator zu arbeiten",
   "bio.p7": "Arbeitet als Front-End-Entwickler bei der Firma QRepublik",
-  "form": "Lass uns reden",
+  "form.heading": "Lass uns reden",
   "web": "Im Netz",
   "footer": "Ruslan Fomin. Alle Rechte vorbehalten.",
   "nav.works": "Projekte",
@@ -35,5 +35,9 @@
   "form.submit": "Nachricht senden",
   "form.loading": "Wird gesendet...",
   "form.success": "Ihre Nachricht wurde erfolgreich gesendet!",
-  "form.error": "Etwas ist schief gelaufen. Bitte versuchen Sie es erneut."
+  "form.error": "Etwas ist schief gelaufen. Bitte versuchen Sie es erneut.",
+  "form.errorCaptcha": "Captcha-Überprüfung fehlgeschlagen. Bitte erneut versuchen.",
+  "form.errorConfig": "Das Kontaktformular ist vorübergehend nicht verfügbar. Bitte später erneut versuchen.",
+  "form.captchaError": "Captcha konnte nicht geladen werden. Seite neu laden oder Blocker prüfen.",
+  "form.captchaRequired": "Bitte Captcha ausfüllen, bevor Sie senden."
 }

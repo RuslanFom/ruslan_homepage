@@ -76,7 +76,7 @@ const ContactForm = () => {
           >
             <Box maxW="36rem" pos="relative" px={{ base: 5, md: 10 }} mt={12}>
               <Heading variant="title" pb={3} textDecoration="underline">
-                {t('form')}
+                {t('form.heading')}
               </Heading>
               <Text fontSize="lg" mt={3}>
                 {t('form.about.1')}
