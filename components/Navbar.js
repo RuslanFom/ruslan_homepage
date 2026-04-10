@@ -8,6 +8,7 @@ import {
     Stack,
     Heading,
     Flex,
+    Image,
     Menu,
     MenuItem,
     MenuList,
@@ -46,6 +47,25 @@ const MenuLink = React.forwardRef((props, ref) => (
 ))
 MenuLink.displayName = 'MenuLink'
 
+const NavItemIcon = ({ type }) => {
+    if (type === 'github') return <IoLogoGithub aria-hidden />
+    if (type === 'jellyfin') {
+        return (
+            <Image
+                src="/images/jellyfin.svg"
+                alt=""
+                h="1.15em"
+                w="1.15em"
+                objectFit="contain"
+                flexShrink={0}
+                display="inline-block"
+                aria-hidden
+            />
+        )
+    }
+    return null
+}
+
 const Navbar = ({ path }) => {
     const { t } = useTranslation('common')
 
@@ -54,7 +74,18 @@ const Navbar = ({ path }) => {
         { href: "/skills", label: t('nav.skills') },
         { href: "/contacts", label: t('nav.contacts') },
         { href: "/examples", label: t('nav.code') },
-        { href: "https://github.com/RuslanFom/ruslan_homepage", label: t('nav.source'), isExternal: true }
+        {
+            href: "https://github.com/RuslanFom/ruslan_homepage",
+            label: t('nav.source'),
+            isExternal: true,
+            navIcon: 'github'
+        },
+        {
+            href: "https://ruska-pc.tail970384.ts.net",
+            label: t('nav.movies'),
+            isExternal: true,
+            navIcon: 'jellyfin'
+        }
     ], [t])
 
     return (
@@ -74,7 +105,7 @@ const Navbar = ({ path }) => {
             align="center"
             justify="space-between"
           >
-              <Flex align="center" mr={5}>
+              <Flex align="center" mr={5} flexShrink={0}>
                   <Heading as="h1" size="lg" letterSpacing={'tighter'}>
                       <Logo />
                   </Heading>
@@ -98,7 +129,9 @@ const Navbar = ({ path }) => {
                       alignItems={item.isExternal ? "center" : undefined}
                       style={{ gap: item.isExternal ? '4px' : undefined }}
                     >
-                        {item.isExternal && <IoLogoGithub />}
+                        {item.isExternal && item.navIcon && (
+                          <NavItemIcon type={item.navIcon} />
+                        )}
                         {item.label}
                     </LinkItem>
                   ))}
@@ -133,7 +166,12 @@ const Navbar = ({ path }) => {
                                   as={item.isExternal ? Link : MenuLink}
                                   href={item.href}
                                 >
-                                    {item.label}
+                                    <Flex align="center" gap={2}>
+                                        {item.navIcon && (
+                                          <NavItemIcon type={item.navIcon} />
+                                        )}
+                                        {item.label}
+                                    </Flex>
                                 </MenuItem>
                               ))}
                           </MenuList>

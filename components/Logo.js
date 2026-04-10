@@ -13,6 +13,8 @@ const LogoBox = styled.span`
     height: 30px;
     line-height: 20px;
     padding: 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
 
     > svg {
         transition: 200ms ease;
