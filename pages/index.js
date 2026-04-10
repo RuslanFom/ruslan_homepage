@@ -86,7 +86,7 @@ const Home = () => {
                       <Heading as="h2" variant="page-title">
                           {t('name')}
                       </Heading>
-                      <p>Digital Craftsman ( Artist / Developer / Explorer )</p>
+                      <p>Digital Craftsman ( Reverse engineer / Developer / Trader / Explorer )</p>
                   </Box>
                   <Box
                     flexShrink={0}
