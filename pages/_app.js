@@ -1,20 +1,23 @@
-import { useEffect, useCallback, useMemo } from 'react';
+import { useEffect, useCallback } from 'react';
 import '../i18n';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { appWithTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import React from 'react';
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import Fonts from '../components/Fonts'
-
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const Chakra = dynamic(() => import('../components/Chakra'), { ssr: true });
 const Layout = dynamic(() => import('../components/layouts/Main'), { ssr: true });
 
+const pageVariants = {
+  hidden: { opacity: 0, y: 20 },
+  enter: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: 20 },
+};
+
 function Website({ Component, pageProps }) {
   const router = useRouter();
-  const MemoizedLayout = useMemo(() => React.memo(Layout), []);
 
   const handleRouteChange = useCallback(() => {
     window.scrollTo({ top: 0 });
@@ -28,29 +31,34 @@ function Website({ Component, pageProps }) {
     };
   }, [router.events, handleRouteChange]);
 
-  const memoizedPageProps = useMemo(() => pageProps, [pageProps]);
-
-  const AnimatePresenceWrapper = useMemo(() => (
-    <AnimatePresence
-      mode="wait"
-      initial={true}
-      onExitComplete={() => {
-        if (typeof window !== 'undefined') {
-          window.scrollTo({ top: 0 });
-        }
-      }}
-    />
-  ), []);
+  const cookies = pageProps.cookies ?? '';
 
   return (
-    <Chakra cookies={memoizedPageProps.cookies}>
-      <Fonts />
-      <MemoizedLayout router={router}>
-        {AnimatePresenceWrapper}
-        <Component {...memoizedPageProps} key={router.route} />
+    <Chakra cookies={cookies}>
+      <Layout router={router}>
+        <AnimatePresence
+          mode="wait"
+          initial={false}
+          onExitComplete={() => {
+            if (typeof window !== 'undefined') {
+              window.scrollTo({ top: 0 });
+            }
+          }}
+        >
+          <motion.div
+            key={`${router.locale}-${router.asPath}`}
+            variants={pageVariants}
+            initial="hidden"
+            animate="enter"
+            exit="exit"
+            transition={{ duration: 0.4, ease: 'easeInOut' }}
+            style={{ width: '100%' }}
+          >
+            <Component {...pageProps} />
+          </motion.div>
+        </AnimatePresence>
         <SpeedInsights />
-        {AnimatePresenceWrapper}
-      </MemoizedLayout>
+      </Layout>
     </Chakra>
   );
 }

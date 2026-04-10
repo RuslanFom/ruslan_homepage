@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback } from 'react'
+import React from 'react'
 import NextLink from 'next/link'
 import {
     Container,
@@ -53,7 +53,7 @@ const socialLinks = [
 const ProfileImage = () => (
   <Image
     src="/images/ruslan.jpg"
-    alt="Profile image"
+    alt="Ruslan Fomin — full stack developer, profile photo"
     width={100}
     height={100}
     priority={true}
@@ -67,29 +67,19 @@ const Home = () => {
     const bgColor = useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')
     const { t } = useTranslation('common')
 
-    const welcomeBox = useMemo(() => (
-      <Box
-        borderRadius="lg"
-        bg={bgColor}
-        p={3}
-        mb={6}
-        textAlign="center"
-        css={{ backdropFilter: 'blur(10px)' }}
-      >
-          {t('welcome')}
-      </Box>
-    ), [t, bgColor])
-
-    const handleSkillsClick = useCallback(() => {
-        // Логика обработки клика 
-    }, [])
-
-
-
     return (
       <Layout>
           <Container>
-              {welcomeBox}
+              <Box
+                borderRadius="lg"
+                bg={bgColor}
+                p={3}
+                mb={6}
+                textAlign="center"
+                css={{ backdropFilter: 'blur(10px)' }}
+              >
+                  {t('welcome')}
+              </Box>
 
               <Box display={{ md: 'flex' }}>
                   <Box flexGrow={1}>
@@ -137,7 +127,6 @@ const Home = () => {
                         scroll={false}
                         rightIcon={<ChevronRightIcon />}
                         colorScheme="teal"
-                        onClick={handleSkillsClick}
                       >
                           {t('skills')}
                       </Button>
@@ -155,8 +144,8 @@ const Home = () => {
                       { year: '2017', text: 'bio.p4' },
                       { year: '2020', text: 'bio.p5' },
                       { year: '2023', text: 'bio.p7' }
-                  ].map((item, index) => (
-                    <BioSection key={index}>
+                  ].map((item) => (
+                    <BioSection key={item.year}>
                         <BioYear>{item.year}</BioYear>
                         {t(item.text)}
                     </BioSection>
@@ -182,8 +171,8 @@ const Home = () => {
                   <SimpleGrid columns={[2]} gap={2} p={3}>
                       <Section>
                           <List>
-                              {socialLinks.slice(0, 3).map((link, index) => (
-                                <ListItem key={index} justifyContent="start" ml={4}>
+                              {socialLinks.slice(0, 3).map((link) => (
+                                <ListItem key={link.href} justifyContent="start" ml={4}>
                                     <SocialButton href={link.href} icon={<link.icon />} label={link.label} />
                                 </ListItem>
                               ))}
@@ -192,7 +181,7 @@ const Home = () => {
                       <Section>
                           <List>
                               {socialLinks.slice(3).map((link, index) => (
-                                <ListItem key={index} textAlign="end" mr={
+                                <ListItem key={link.href} textAlign="end" mr={
                                     index === 0 ? 6 :
                                     index === 2 ? 14 :
                                     0 }>

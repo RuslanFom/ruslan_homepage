@@ -5,7 +5,7 @@ import {
     cookieStorageManagerSSR,
     localStorageManager
 } from '@chakra-ui/react'
-import theme from '../libs/theme'
+import defaultTheme from '../libs/theme'
 
 const Chakra = React.memo(({ cookies, children }) => {
     const [colorModeManager, setColorModeManager] = useState(
@@ -21,8 +21,8 @@ const Chakra = React.memo(({ cookies, children }) => {
     }, [])
 
     return (
-      <ChakraProvider theme={theme} colorModeManager={colorModeManager}>
-          {children}
+      <ChakraProvider theme={defaultTheme} colorModeManager={colorModeManager}>
+        {children}
       </ChakraProvider>
     )
 })
@@ -31,7 +31,7 @@ Chakra.displayName = 'Chakra'
 
 Chakra.propTypes = {
     cookies: PropTypes.string,
-    children: PropTypes.node.isRequired
+    children: PropTypes.node.isRequired,
 }
 
 export default Chakra

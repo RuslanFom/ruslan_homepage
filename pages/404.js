@@ -7,10 +7,12 @@ import {
     Divider,
     Button
 } from '@chakra-ui/react'
+import { NextSeo } from 'next-seo'
 
 const NotFound = () => {
     return (
         <Container>
+            <NextSeo title="404 — Page not found" noindex nofollow />
             <Heading as="h1">Not Found</Heading>
             <Text>The page you&apos;re looking for was not found.</Text>
             <Divider my={6}/>

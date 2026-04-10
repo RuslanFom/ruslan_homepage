@@ -1,9 +1,10 @@
+/** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://ruslan-homepage.vercel.app/',
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://ruslanfomin.com',
   generateRobotsTxt: true,
+  outDir: 'public',
   robotsTxtOptions: {
-    additionalSitemaps: [
-      'https://ruslan-homepage.vercel.app//server-sitemap.xml',
-    ],
+    policies: [{ userAgent: '*', allow: '/' }],
+    additionalSitemaps: [],
   },
 }
