@@ -81,7 +81,7 @@ const Navbar = ({ path }) => {
             navIcon: 'github'
         },
         {
-            href: "https://ruska-pc.tail970384.ts.net",
+            href: "/movies",
             label: t('nav.movies'),
             isExternal: true,
             navIcon: 'jellyfin'
