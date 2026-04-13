@@ -25,7 +25,7 @@ const nextConfig = {
       },
       {
         source: "/movies",
-        destination: "https://ruska-pc.tail970384.ts.net",
+        destination: "https://movies.ruslanfomin.com",
         permanent: false,
       },
     ];
